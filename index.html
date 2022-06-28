@@ -36,7 +36,7 @@
 
     <section class="elements">
       <div class="elements__element">
-        <img class="elements__image" src="./images/grid-karachaevsk.jpg" alt="Карачаевск" data-type="auto">
+        <img class="elements__image" src="./images/elements-karachaevsk.jpg" alt="Карачаевск" data-type="auto">
         <div class="elements__group">
           <p class="elements__title">Карачаевск</p>
           <button class="elements__like"></button>
@@ -44,7 +44,7 @@
       </div>
 
       <div class="elements__element">
-        <img class="elements__image" src="./images/grid-elbrus.jpg" alt="Гора Эльбрус" data-type="auto">
+        <img class="elements__image" src="./images/elements-elbrus.jpg" alt="Гора Эльбрус" data-type="auto">
         <div class="elements__group">
           <p class="elements__title">Гора Эльбрус</p>
           <button class="elements__like"></button>
@@ -52,7 +52,7 @@
       </div>
 
       <div class="elements__element">
-        <img class="elements__image" src="./images/grid-dombay.jpg" alt="Домбай" data-type="auto">
+        <img class="elements__image" src="./images/elements-dombay.jpg" alt="Домбай" data-type="auto">
         <div class="elements__group">
           <p class="elements__title">Домбай</p>
           <button class="elements__like"></button>
@@ -60,7 +60,7 @@
       </div>
 
       <div class="elements__element">
-        <img class="elements__image" src="./images/grid-elbrus.jpg" alt="Гора Эльбрус" data-type="auto">
+        <img class="elements__image" src="./images/elements-elbrus.jpg" alt="Гора Эльбрус" data-type="auto">
         <div class="elements__group">
           <p class="elements__title">Гора Эльбрус</p>
           <button class="elements__like"></button>
@@ -68,7 +68,7 @@
       </div>
 
       <div class="elements__element">
-        <img class="elements__image" src="./images/grid-dombay.jpg" alt="Домбай" data-type="auto">
+        <img class="elements__image" src="./images/elements-dombay.jpg" alt="Домбай" data-type="auto">
         <div class="elements__group">
           <p class="elements__title">Домбай</p>
           <button class="elements__like"></button>
@@ -76,7 +76,7 @@
       </div>
 
       <div class="elements__element">
-        <img class="elements__image" src="./images/grid-karachaevsk.jpg" alt="Карачаево-Черкессия" data-type="auto">
+        <img class="elements__image" src="./images/elements-karachaevsk.jpg" alt="Карачаево-Черкессия" data-type="auto">
         <div class="elements__group">
           <p class="elements__title">Карачаево-Черкессия</p>
           <button class="elements__like"></button>
@@ -102,40 +102,8 @@
       <button class="popup__close-icon"></button>
     </div>
   </div>
-  
-  <script>
 
-    let editButton = document.querySelector('.profile__edit-button');
-    let formElement = document.querySelector('.popup');
-    let closeButton = formElement.querySelector('.popup__close-icon');
-    let saveButton = document.querySelector('.popup__save-button');
-    let nameInput = document.querySelector('.popup__input-title');
-    let infoInput = document.querySelector('.popup__input-subtitle');
-    let title = document.querySelector('.profile__title');
-    let subtitle = document.querySelector('.profile__subtitle');
-
-    function showPopup() {
-      formElement.classList.add('popup_opened');
-    }
-
-    function hidePopup() {
-      formElement.classList.remove('popup_opened');
-    }
-
-    function formSubmitHandler(evt) {
-      evt.preventDefault();
-      title.textContent = `${nameInput.value}`;
-      subtitle.textContent = `${infoInput.value}`;
-      formElement.classList.remove('popup_opened');
-      nameInput.value = 'Жак-Ив Кусто'
-      infoInput.value = 'Исследователь океана'
-    }
-
-    editButton.addEventListener('click', showPopup);
-    closeButton.addEventListener('click', hidePopup);
-    saveButton.addEventListener('click', formSubmitHandler);
-
-</script>
+  <script src="./scripts/index.js"></script> 
 
 </body>
 </html>
