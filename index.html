@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="рекомендации для поездок по России">
+  <meta name="keywords" content="Россия, туризм, Байкал, Сибирь, Карелия, Алтай">
+  <meta name="author" content="Виктор Тимофеев">
+  <title>Mesto</title>
+  <link rel="stylesheet" href="./pages/index.css">
+</head>
+
+<body class="page">
+
+  <header class="header">
+    <div class="header__logo"></div>
+  </header>
+
+  <main class="content page__content">
+
+    <section class="profile">
+      <div class="profile__item">
+        <img class="profile__image" alt="Жак-Ив Кусто" src="./images/avatar.jpg">
+        <div class="profile__info">
+          <div class="profile__title-block">
+            <h1 class="profile__title">Жак-Ив Кусто</h1>
+            <button class="profile__edit-button"></button>
+          </div>
+          <p class="profile__subtitle">Исследователь океана</p>
+        </div>
+      </div>
+      <button class="profile__add-button"></button>
+    </section>
+
+    <section class="elements">
+      <div class="elements__element">
+        <img class="elements__image" src="./images/grid-karachaevsk.jpg" alt="Карачаевск" data-type="auto">
+        <div class="elements__group">
+          <p class="elements__title">Карачаевск</p>
+          <button class="elements__like"></button>
+        </div>
+      </div>
+
+      <div class="elements__element">
+        <img class="elements__image" src="./images/grid-elbrus.jpg" alt="Гора Эльбрус" data-type="auto">
+        <div class="elements__group">
+          <p class="elements__title">Гора Эльбрус</p>
+          <button class="elements__like"></button>
+        </div>
+      </div>
+
+      <div class="elements__element">
+        <img class="elements__image" src="./images/grid-dombay.jpg" alt="Домбай" data-type="auto">
+        <div class="elements__group">
+          <p class="elements__title">Домбай</p>
+          <button class="elements__like"></button>
+        </div>
+      </div>
+
+      <div class="elements__element">
+        <img class="elements__image" src="./images/grid-elbrus-2.jpg" alt="Гора Эльбрус" data-type="auto">
+        <div class="elements__group">
+          <p class="elements__title">Гора Эльбрус</p>
+          <button class="elements__like"></button>
+        </div>
+      </div>
+
+      <div class="elements__element">
+        <img class="elements__image" src="./images/grid-dombay-2.jpg" alt="Домбай" data-type="auto">
+        <div class="elements__group">
+          <p class="elements__title">Домбай</p>
+          <button class="elements__like"></button>
+        </div>
+      </div>
+
+      <div class="elements__element">
+        <img class="elements__image" src="./images/grid-karachaevsk-2.jpg" alt="Карачаево-Черкессия" data-type="auto">
+        <div class="elements__group">
+          <p class="elements__title">Карачаево-Черкессия</p>
+          <button class="elements__like"></button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p class="footer__copyright">&copy;&nbsp;2020.&nbsp;Mesto&nbsp;Russia</p>
+  </footer>
+
+  <div class="popup">
+    <div class="popup__container">
+      
+      <div class="popup__form">
+        <h2 class="popup__title">Редактировать профиль</h2>
+        <input class="popup__input-title" value="Жак-Ив Кусто">
+        <input class="popup__input-subtitle" value="Исследователь океана">
+        <button class="popup__save-button">Сохранить</button>
+      </div>
+      <button class="popup__close-icon"></button>
+    </div>
+  </div>
+  
+  <script>
+
+    let editButton = document.querySelector('.profile__edit-button');
+    let formElement = document.querySelector('.popup');
+    let closeButton = formElement.querySelector('.popup__close-icon');
+    let saveButton = document.querySelector('.popup__save-button');
+    let nameInput = document.querySelector('.popup__input-title');
+    let infoInput = document.querySelector('.popup__input-subtitle');
+    let title = document.querySelector('.profile__title');
+    let subtitle = document.querySelector('.profile__subtitle');
+
+    function showPopup() {
+      formElement.classList.add('popup_opened');
+    }
+
+    function hidePopup() {
+      formElement.classList.remove('popup_opened');
+    }
+
+    function formSubmitHandler(evt) {
+      evt.preventDefault();
+      title.textContent = `${nameInput.value}`;
+      subtitle.textContent = `${infoInput.value}`;
+      formElement.classList.remove('popup_opened');
+      nameInput.value = 'Жак-Ив Кусто'
+      infoInput.value = 'Исследователь океана'
+    }
+
+    editButton.addEventListener('click', showPopup);
+    closeButton.addEventListener('click', hidePopup);
+    saveButton.addEventListener('click', formSubmitHandler);
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+.elements__like {
+  background-image: url(../../../images/like.svg);
+  width: 22px;
+  height: 19px;
+  margin: 5px 5px 0 0;
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0);
+  cursor: default;
+  transition: .2s;
+}
+
+.elements__like:hover {
+  cursor: url("../../../images/cursor.svg"), pointer;	
+}
+
+.elements__like:active {
+  background-image: url(../../../images/like-black.svg);
+  cursor: url("../../../images/cursor.svg"), pointer;	
+}
+
+  @media screen and (max-width: 568px) {
+    .elements__like {
+    }
+  }
+
