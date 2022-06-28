@@ -12,6 +12,9 @@
   border-right: none;
   margin: 0;
   cursor: default;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
   @media screen and (max-width: 880px) {
