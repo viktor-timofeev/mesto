@@ -1,12 +1,13 @@
 .popup__container {
-  position: fixed;
   display: flex;
 }
 
   @media screen and (max-width: 880px) {
     .popup__container {
       font-size: 18px;
-      line-height: 22px;     
+      line-height: 22px; 
+      min-width: 282px;   
+      margin: 87px auto 0; 
     }
   }
 

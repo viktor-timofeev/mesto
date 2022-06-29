@@ -1,5 +1,5 @@
 .elements__element {
-  object-fit: contain;
+  /*object-fit: contain;*/
   max-width: 282px;
   width: 100%;
   background-color: white;
@@ -9,7 +9,7 @@
   box-sizing: border-box;
 }
 
-.elements__element:nth-of-type(3) {
+.elements__element:nth-child(3) {
   margin-right: 0;
 }
 
@@ -18,15 +18,24 @@
 }
 
   @media screen and (max-width: 881px) {
-    .elements__element:nth-of-type(3) {
+    .elements__element:nth-child(3) {
       margin-right: 17px;
     }
-    
 
-    .elements__element:nth-of-type(2) {
+    .elements__element:nth-child(2) {
       margin-right: 0;
     }
-    .elements__element:last-child {
+
+    .elements__element:nth-child(4) {
+      margin-right: 0;
+    }
+  }
+
+  @media screen and (max-width: 582px) {
+    .elements__element {
+      margin: 0 0 20px;
+    }
+    .elements__element:nth-child(3) {
       margin-right: 0;
     }
   }
