@@ -6,6 +6,7 @@
   background-repeat: no-repeat;
   background-size: contain;
   padding: 0;
+  margin: 0;
   border: none;
   font: inherit;
   color: inherit;
@@ -16,14 +17,14 @@
 
 .profile__add-button:hover {
   opacity: .6;
-  cursor: url("../../../images/cursor-white.svg"), pointer;	
+  cursor: pointer;	
 }
 
   @media screen and (max-width: 880px) {
     .profile__add-button {
       background-image: url(../../../images/Add-Button-large.svg);
-      margin: auto;
-      min-width: 282px;
+      max-width: 282px;
+      width: 100%;
     }
   }
 

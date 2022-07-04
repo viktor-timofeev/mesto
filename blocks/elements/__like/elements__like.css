@@ -13,12 +13,13 @@
 }
 
 .elements__like:hover {
-  cursor: url("../../../images/cursor.svg"), pointer;	
+  cursor: pointer;
+  opacity: 0.5;	
 }
 
 .elements__like:active {
   background-image: url(../../../images/like-black.svg);
-  cursor: url("../../../images/cursor.svg"), pointer;	
+  cursor: pointer;	
 }
 
   @media screen and (max-width: 568px) {

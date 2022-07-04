@@ -1,14 +1,16 @@
   let editButton = document.querySelector('.profile__edit-button');
   let formElement = document.querySelector('.popup');
-  let closeButton = formElement.querySelector('.popup__close-icon');
-  let saveButton = document.querySelector('.popup__save-button');
+  let form = document.querySelector('.popup__form');
   let nameInput = document.querySelector('.popup__input-title');
   let infoInput = document.querySelector('.popup__input-subtitle');
   let title = document.querySelector('.profile__title');
   let subtitle = document.querySelector('.profile__subtitle');
+  let closeButton = formElement.querySelector('.popup__close-icon'); 
 
   function showPopup() {
     formElement.classList.add('popup_opened');
+    nameInput.value = title.textContent;
+    infoInput.value = subtitle.textContent;
   }
 
   function hidePopup() {
@@ -17,13 +19,12 @@
 
   function formSubmitHandler(evt) {
     evt.preventDefault();
-    title.textContent = `${nameInput.value}`;
-    subtitle.textContent = `${infoInput.value}`;
-    formElement.classList.remove('popup_opened');
-    nameInput.value = 'Жак-Ив Кусто'
-    infoInput.value = 'Исследователь океана'
+    title.textContent = nameInput.value;
+    subtitle.textContent = infoInput.value;
+    hidePopup();
   }
 
   editButton.addEventListener('click', showPopup);
+  form.addEventListener('submit', formSubmitHandler);
   closeButton.addEventListener('click', hidePopup);
-  saveButton.addEventListener('click', formSubmitHandler);
+  
