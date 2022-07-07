@@ -19,11 +19,6 @@
 
 .elements__like:active {
   background-image: url(../../../images/like-black.svg);
-  cursor: pointer;	
+  cursor: pointer;
+  opacity: 100%;	
 }
-
-  @media screen and (max-width: 568px) {
-    .elements__like {
-    }
-  }
-

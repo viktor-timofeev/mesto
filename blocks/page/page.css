@@ -1,11 +1,11 @@
 .page {
   background-color: #000000;
-  min-width: 250px;
+  min-width: 320px;
   max-width: 1280px;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  margin: 45px auto 60px;
+  margin: 45px 0 60px;
 }
 
   @media screen and (max-width: 600px) {

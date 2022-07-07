@@ -1,6 +1,7 @@
 .elements {
   display: flex;
   flex-direction: row;
+  flex-shrink: 0;
   flex-wrap: wrap;
   justify-content: center;
   align-content: center;
@@ -19,6 +20,6 @@
 
 @media screen and (max-width: 615px) {
   .elements {
-    max-width: 282px;
+    min-width: 282px;
   }
 }
