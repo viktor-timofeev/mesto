@@ -7,7 +7,7 @@
   justify-content: space-between;
 }
 
-  @media screen and (max-width: 568px) {
+  @media screen and (max-width: 910px) {
     .profile__info {
       margin-top: 2px;
       min-width: 214.25px;
