@@ -1,9 +1,9 @@
-.popup {
-  display: flex;
+.add-form {
   visibility: hidden;
   opacity: 0;
   transition: visibility .5s, opacity .5s ease-in-out;
   position: fixed;
+  display: flex;
   z-index: 20;
   top: 0;
   left: 0;
@@ -13,4 +13,3 @@
   justify-content: center;
   background: rgba(0, 0, 0, .5);
 }
-

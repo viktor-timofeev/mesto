@@ -35,53 +35,16 @@
     </section>
 
     <section class="elements">
-      <div class="elements__element">
-        <img class="elements__image" src="./images/elements-karachaevsk.jpg" alt="Карачаевск" data-type="auto">
-        <div class="elements__group">
-          <h2 class="elements__title">Карачаевск</h2>
-          <button class="elements__like" type="button"></button>
+      <template class="elements-item">
+        <div class="elements__element">
+          <button class="elements__trash" type="button"></button>
+          <img class="elements__image" src="" alt="" data-type="auto">
+          <div class="elements__group">
+            <h2 class="elements__title"></h2>
+            <button class="elements__like" type="button"></button>
+          </div>
         </div>
-      </div>
-
-      <div class="elements__element">
-        <img class="elements__image" src="./images/elements-elbrus.jpg" alt="Гора Эльбрус" data-type="auto">
-        <div class="elements__group">
-          <h2 class="elements__title">Гора Эльбрус</h2>
-          <button class="elements__like" type="button"></button>
-        </div>
-      </div>
-
-      <div class="elements__element">
-        <img class="elements__image" src="./images/elements-dombay.jpg" alt="Домбай" data-type="auto">
-        <div class="elements__group">
-          <h2 class="elements__title">Домбай</h2>
-          <button class="elements__like" type="button"></button>
-        </div>
-      </div>
-
-      <div class="elements__element">
-        <img class="elements__image" src="./images/elements-elbrus.jpg" alt="Гора Эльбрус" data-type="auto">
-        <div class="elements__group">
-          <h2 class="elements__title">Гора Эльбрус</h2>
-          <button class="elements__like" type="button"></button>
-        </div>
-      </div>
-
-      <div class="elements__element">
-        <img class="elements__image" src="./images/elements-dombay.jpg" alt="Домбай" data-type="auto">
-        <div class="elements__group">
-          <h2 class="elements__title">Домбай</h2>
-          <button class="elements__like" type="button"></button>
-        </div>
-      </div>
-
-      <div class="elements__element">
-        <img class="elements__image" src="./images/elements-karachaevsk.jpg" alt="Карачаево-Черкессия" data-type="auto">
-        <div class="elements__group">
-          <h2 class="elements__title">Карачаево-Черкессия</h2>
-          <button class="elements__like" type="button"></button>
-        </div>
-      </div>
+      </template>
     </section>
 
   </main>
@@ -92,7 +55,7 @@
 
   <div class="popup">
     <div class="popup__container">
-      
+
       <form class="popup__form" name="tourist-profile" method="post">
         <h2 class="popup__title">Редактировать профиль</h2>
         <input class="popup__input popup__input_type_title" name="name" placeholder="Имя" value="">
@@ -103,7 +66,31 @@
     </div>
   </div>
 
-  <script src="./scripts/index.js"></script> 
+  <div class="add-form">
+    <div class="add-form__container">
+
+      <form class="add-form__form" name="tourist-profile" method="post">
+        <h2 class="add-form__title">Новое место</h2>
+        <input class="add-form__input add-form__input_type_name" name="name" placeholder="Название" value="">
+        <input class="add-form__input add-form__input_type_link" name="link" placeholder="Ссылка на картинку" value="">
+        <button class="add-form__save-button" type="submit">Создать</button>
+      </form>
+      <button class="add-form__close-icon" type="button"></button>
+    </div>
+  </div>
+
+
+  <div class="image-popup">
+    <div class="image-popup__container">
+      <button class="image-popup__close-icon" type="button"></button>
+      <img class="image-popup__image"
+        src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg" alt="" data-type="auto">
+      <h2 class="image-popup__title"></h2>
+    </div>
+  </div>
+
+  <script src="./scripts/index.js"></script>
 
 </body>
+
 </html>

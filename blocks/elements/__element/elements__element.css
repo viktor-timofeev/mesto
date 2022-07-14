@@ -1,54 +1,8 @@
 .elements__element {
+  position: relative;
   max-width: 282px;
   width: 100%;
   background-color: white;
   border-radius: 10px;
-  margin-right: 17px;
-  margin-bottom: 20px;
-  margin-left: 0;
   box-sizing: border-box;
 }
-
-.elements__element:nth-child(3) {
-  margin-right: 0;
-}
-
-.elements__element:last-child {
-  margin-right: 0;
-}
-
-  @media screen and (max-width: 910px) {
-    .elements__element:nth-child(3) {
-      margin-right: 17px;
-    }
-
-    .elements__element:nth-child(2) {
-      margin-right: 0;
-    }
-
-    .elements__element:nth-child(4) {
-      margin-right: 0;
-    }
-  }
-
-  @media screen and (max-width: 615px) {
-    .elements__element {
-      margin: 0 0 20px;
-    }
-    .elements__element:nth-child(3) {
-      margin-right: 0;
-    }
-  }
-
-  @media screen and (max-width: 340px) {
-    .elements__element:nth-child(1) {
-      margin-right: 0;
-    }
-    .elements__element:nth-child(5) {
-      margin-right: 0;
-    }  
-    .elements__element:nth-child(6) {
-      margin-right: 0;
-    }
-  }
-

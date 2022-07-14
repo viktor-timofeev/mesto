@@ -1,0 +1,29 @@
+.add-form__close-icon {
+  min-width: 32px;
+  min-height: 32px;
+  display: block;
+  background-image: url(../../../images/Close-Icon.svg);
+  align-self: flex-start;
+  justify-items: right;
+  background-size: contain;
+  padding: 0;
+  margin: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: rgba(28,28,28,0);
+}
+
+.add-form__close-icon:hover {
+  opacity: .6;
+  cursor: pointer;	
+}
+
+  @media screen and (max-width: 880px) {
+    .add-form__close-icon {
+      min-width: 20px;
+      min-height: 20px;
+      margin-left: -20px;
+      margin-bottom: 16px;
+    }
+  }

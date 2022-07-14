@@ -1,5 +1,4 @@
-.popup {
-  display: flex;
+.image-popup {
   visibility: hidden;
   opacity: 0;
   transition: visibility .5s, opacity .5s ease-in-out;
@@ -13,4 +12,3 @@
   justify-content: center;
   background: rgba(0, 0, 0, .5);
 }
-
