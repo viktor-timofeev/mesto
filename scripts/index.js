@@ -17,7 +17,7 @@ const selectors = {
     profileTitle: '.profile__title',
     profileInfo: '.profile__subtitle',
     templateCard: '.elements-item',
-    card: '.elements',
+    cardsList: '.elements',
   }
   
   const buttonProfileEdit = document.querySelector(selectors.buttonProfileEdit);
@@ -38,7 +38,7 @@ const selectors = {
   const profileName = document.querySelector(selectors.profileTitle);
   const profileInfo = document.querySelector(selectors.profileInfo);
   const templateCard = document.querySelector(selectors.templateCard).content;
-  const card = document.querySelector(selectors.card);
+  const cardsList = document.querySelector(selectors.cardsList);
   
   function showPopup(element) {
     element.classList.add('popup_opened');
@@ -81,7 +81,7 @@ const selectors = {
       },
     ]
     newCards.forEach((item) => {
-      card.prepend(createCard(item));
+      cardsList.prepend(createCard(item));
     })
     hidePopup(evt);
     evt.target.reset();
@@ -99,7 +99,7 @@ const selectors = {
   }
 
   initialCards.forEach((item) => {
-    card.append(createCard(item));
+    cardsList.append(createCard(item));
   });
   buttonProfileEdit.addEventListener('click', function() {
   showPopup(popupProfileEdit);
