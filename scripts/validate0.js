@@ -8,7 +8,6 @@ const form = {
 }
 
 function enableValidation(config) {
-  //Найти форму в документе
   const form = Array.from(document.querySelectorAll(config.form));
   form.forEach((form) => {
     form.addEventListener('input', (evt) => handleFormInput(evt, config));
@@ -21,12 +20,9 @@ function enableValidation(config) {
 function handleFormInput(evt, config) {
   const input = evt.target;
   const form = evt.currentTarget;
-  if (!input.validity.valid) {
-    showFieldError(input, form);
-  } else {
-    hideFieldError(input, form);
-  }
+  showFieldError(input, form);
   setSubmitButtonState(form, config);
+  showRedLine(input, form);
 }
 
 function handleFormSubmit(evt, config) {
@@ -45,13 +41,6 @@ function handleFormSubmit(evt, config) {
 function showFieldError(input, form) {
   const span = form.querySelector(`.${input.name}-error`);
   span.textContent = input.validationMessage;
-  input.classList.add('popup__input_type_error');
-}
-
-function hideFieldError(input, form) {
-  const span = form.querySelector(`.${input.name}-error`);
-  span.textContent = "";
-  input.classList.remove('popup__input_type_error');
 }
 
 function setSubmitButtonState(form, config) {

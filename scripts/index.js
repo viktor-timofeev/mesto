@@ -99,6 +99,13 @@
     card.remove();
   }
 
+  function enableSaveButton(popupProfileEdit) {
+    const saveButton = popupProfileEdit.querySelector('.popup__submit-button');
+    saveButton.removeAttribute('disabled');
+    saveButton.classList.remove('popup__submit-button_type_inactive');
+    saveButton.classList.add('popup__submit-button_type_active');
+  }
+
   initialCards.forEach((item) => {
     cardsList.append(createCard(item));
   });
@@ -107,6 +114,8 @@
     showPopup(popupProfileEdit);
     inputProfileName.value = profileName.textContent;
     inputProfileInfo.value = profileInfo.textContent;
+    enableSaveButton(popupProfileEdit);
+    hideFieldError(input, form);
   })
 
   formPopupProfileEdit.addEventListener('submit', submitPopupProfileEdit);
@@ -115,6 +124,7 @@
 
   buttonCardAdd.addEventListener('click', function() {
     showPopup(popupCardAdd);
+    hideFieldError(input, form);
   });
 
   popups.forEach((popup) => {
