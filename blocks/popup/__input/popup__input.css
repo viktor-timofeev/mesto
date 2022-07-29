@@ -18,3 +18,7 @@
 .popup__input:first-of-type {
   margin-bottom: 30px;
 }
+
+.popup__input:invalid {
+  border-bottom-color: red;
+}

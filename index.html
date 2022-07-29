@@ -52,17 +52,19 @@
   </main>
 
   <footer class="footer">
-    <p class="footer__copyright">&copy;&nbsp;2020.&nbsp;Mesto&nbsp;Russia</p>
+    <p class="footer__copyright">&copy;&nbsp;2022.&nbsp;Mesto&nbsp;Russia</p>
   </footer>
 
   <div class="popup popup_function_edit popup_type_light">
     <div class="popup__container popup__container_size_small">
       <button class="popup__close-button" type="button"></button>
-      <form class="popup__form popup__form_function_edit" name="tourist-profile" method="post">
+      <form class="popup__form popup__form_function_edit" name="touristProfile" method="post" novalidate>
         <h2 class="popup__title">Редактировать профиль</h2>
-        <input class="popup__input popup__input_type_title" name="name" placeholder="Имя" value="">
-        <input class="popup__input popup__input_type_subtitle" name="occupation" placeholder="О себе" value="">
-        <button class="popup__submit-button" type="submit">Сохранить</button>
+        <input id="name-input" class="popup__input popup__input_type_title" name="name-input" placeholder="Имя" value="" type="text" minlength="2" maxlength="40" required>
+        <span id="name-input-error" class="popup__input-error name-input-error"></span>
+        <input id="occupation-input" class="popup__input popup__input_type_subtitle" name="occupation-input" placeholder="О себе" value="" type="text" minlength="2" maxlength="200" required>
+        <span id="occupation-input-error" class="popup__input-error occupation-input-error"></span>
+        <button class="popup__submit-button popup__submit-button_type_inactive" type="submit" disabled>Схранить</button>
       </form>
     </div>
   </div>
@@ -70,11 +72,13 @@
   <div class="popup popup_function_add popup_type_light">
     <div class="popup__container popup__container_size_small">
       <button class="popup__close-button" type="button"></button>
-      <form class="popup__form popup__form_function_add" name="new-card" method="post">
+      <form class="popup__form popup__form_function_add" name="newCard" method="post" novalidate>
         <h2 class="popup__title">Новое место</h2>
-        <input class="popup__input popup__input_type_name" name="name" placeholder="Название" value="">
-        <input class="popup__input popup__input_type_link" name="link" placeholder="Ссылка на картинку" value="">
-        <button class="popup__submit-button" type="submit">Создать</button>
+        <input id="title-input" class="popup__input popup__input_type_name" name="title-input" placeholder="Название" value="" type="text" minlength="2" maxlength="30" required>
+        <span id="title-input-error" class="popup__input-error title-input-error"></span>
+        <input id="link-input" class="popup__input popup__input_type_link" name="link-input" placeholder="Ссылка на картинку" value="" type="url" required>
+        <span id="link-input-error" class="popup__input-error link-input-error"></span>
+        <button class="popup__submit-button popup__submit-button_type_inactive" type="submit" disabled>Создать</button>
       </form>
     </div>
   </div>
@@ -84,12 +88,13 @@
       <button class="popup__close-button" type="button"></button>
       <img class="popup__image" src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg"
         alt="" data-type="auto">
-      <h2 class="popup__image-caption">hh</h2>
+      <h2 class="popup__image-caption"></h2>
     </div>
   </div>
 
   <script src="./scripts/cards.js"></script>
   <script src="./scripts/index.js"></script>
+  <script src="./scripts/validate.js"></script>
 
 </body>
 
