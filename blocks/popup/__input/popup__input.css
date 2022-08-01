@@ -6,16 +6,10 @@
   font-size: 14px;
   line-height: 17px;
   color: #000000;
-  padding: 0 0 13px;
+  padding: 0 0 13.34px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   border-top: none;
   border-left: none;
   border-right: none;
-  margin: 0;
   cursor: default;
 }
-
-.popup__input:first-of-type {
-  margin-bottom: 30px;
-}
-
