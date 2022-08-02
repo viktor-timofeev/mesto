@@ -18,23 +18,23 @@ function handleFormInput(evt, config) {
   const input = evt.target;
   const form = evt.currentTarget;
   if (!input.validity.valid) {
-    showFieldError(input, form);
+    showFieldError(input, form, config);
   } else {
-    hideFieldError(input, form);
+    hideFieldError(input, form, config);
   }
   setSubmitButtonState(form, config);
 }
 
-function showFieldError(input, form) {
+function showFieldError(input, form, config) {
   const span = form.querySelector(`.${input.name}-error`);
   span.textContent = input.validationMessage;
-  input.classList.add(validateConfig.inputError);
+  input.classList.add(config.inputError);
 }
 
-function hideFieldError(input, form) {
+function hideFieldError(input, form, config) {
   const span = form.querySelector(`.${input.name}-error`);
   span.textContent = "";
-  input.classList.remove(validateConfig.inputError);
+  input.classList.remove(config.inputError);
 }
 
 function setSubmitButtonState(form, config) {

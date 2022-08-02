@@ -4,7 +4,7 @@
   min-width: 358px;
   min-height: 50px;
   padding: 0;
-  margin: 48px 0 0;
+  margin: 10px 0 15px;
   font: inherit;
   font-family: 'Inter', Arial, sans-serif;
   font-style: normal;
@@ -28,6 +28,7 @@
       min-height: 46px;
       font-size: 14px;
       line-height: 17px;
-      margin-top: 45px;
+      margin-top: 15px;
+      margin-bottom: 15px;
     }
   }
