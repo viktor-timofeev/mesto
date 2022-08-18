@@ -1,3 +1,6 @@
+import {Card} from './Card.js';
+import {validateConfig, FormValidator} from './FormValidator.js';
+
 const selectors = {
   popup: ".popup",
   popupProfileEdit: ".popup_function_edit",
@@ -43,6 +46,14 @@ const templateCard = document.querySelector(selectors.templateCard).content;
 const cardsList = document.querySelector(selectors.cardsList);
 const images = document.querySelectorAll(selectors.image);
 
+const validatorFormPopupProfileEdit = new FormValidator(validateConfig, formPopupProfileEdit);
+validatorFormPopupProfileEdit.enableValidation();
+
+const validatorFormPopupAddCard = new FormValidator(validateConfig, formPopupAddCard);
+validatorFormPopupAddCard.enableValidation();
+  
+
+
 function showPopup(element) {
   element.classList.add("popup_opened");
   document.addEventListener("keydown", hidePopupByEscape);
@@ -55,14 +66,21 @@ function hidePopupByEscape(evt, popup) {
   }
 }
 
-function submitPopupCardAdd(evt) {
-  evt.preventDefault();
+function createCard() {
   const newCard = {
     name: inputCardName.value,
     link: inputCardLink.value,
   };
-  cardsList.prepend(createCard(newCard));
-  disableSaveButton(popupCardAdd);
+  const card = new Card(newCard, '.elements-item', handleCardClick);
+  newCard.name = inputCardName.value;
+  newCard.link = inputCardLink.value;
+	const cardElement = card.generate();
+  return cardElement;
+}
+
+function submitPopupCardAdd(evt) {
+  evt.preventDefault();
+  cardsList.prepend(createCard());
   hidePopup(popupCardAdd);
 }
 
@@ -73,61 +91,18 @@ function submitPopupProfileEdit(evt) {
   hidePopup(popupProfileEdit);
 }
 
-function createCard(item) {
-  const element = templateCard
-    .querySelector(".elements__element")
-    .cloneNode(true);
-  const image = element.querySelector(".elements__image");
-  image.src = item.link;
-  image.alt = item.name;
-  element.querySelector(".elements__title").textContent = item.name;
-  element
-    .querySelector(".elements__like")
-    .addEventListener("click", function (evt) {
-      evt.target.classList.toggle("elements__like_state_active");
-    });
-  element
-    .querySelector(".elements__trash")
-    .addEventListener("click", removeCard);
-  image.addEventListener("click", function () {
-    showPopup(popupImage);
-    popupImageItem.src = item.link;
-    popupImageItem.alt = item.name;
-    popupImageCaption.textContent = item.name;
-  });
-  return element;
+export default function handleCardClick(link, name) {
+  showPopup(popupImage);
+  popupImageItem.src = link;
+  popupImageItem.alt = name;
+  popupImageCaption.textContent = name;
 }
-
-function removeCard(evt) {
-  const card = evt.target.closest(".elements__element");
-  card.remove();
-}
-
-function enableSaveButton(popupProfileEdit) {
-  const saveButton = popupProfileEdit.querySelector(".popup__submit-button");
-  saveButton.removeAttribute("disabled");
-  saveButton.classList.remove("popup__submit-button_type_inactive");
-  saveButton.classList.add("popup__submit-button_type_active");
-}
-
-function disableSaveButton(popup) {
-  const saveButton = popup.querySelector(".popup__submit-button");
-  saveButton.disabled = true;
-  saveButton.classList.add("popup__submit-button_type_inactive");
-  saveButton.classList.remove("popup__submit-button_type_active");
-}
-
-initialCards.forEach((item) => {
-  cardsList.append(createCard(item));
-});
 
 buttonProfileEdit.addEventListener("click", function (evt) {
   showPopup(popupProfileEdit);
   inputProfileName.value = profileName.textContent;
   inputProfileInfo.value = profileInfo.textContent;
-  enableSaveButton(popupProfileEdit);
-  hideFieldError(inputProfileName, formPopupProfileEdit, validateConfig);
-  hideFieldError(inputProfileInfo, formPopupProfileEdit, validateConfig);
+  validatorFormPopupProfileEdit.resetValidation();
 });
 
 formPopupProfileEdit.addEventListener("submit", submitPopupProfileEdit);
@@ -138,8 +113,7 @@ buttonCardAdd.addEventListener("click", function () {
   showPopup(popupCardAdd);
   inputCardName.value = "";
   inputCardLink.value = "";
-  hideFieldError(inputCardName, formPopupAddCard, validateConfig);
-  hideFieldError(inputCardLink, formPopupAddCard, validateConfig);
+  validatorFormPopupAddCard.resetValidation();
 });
 
 buttonsClosePopup.forEach((button) => {
@@ -159,3 +133,9 @@ popups.forEach((popup) => {
     }
   }) 
 })
+
+initialCards.forEach((item) => {
+	const card = new Card(item, '.elements-item', handleCardClick);
+	const cardElement = card.generate();
+	document.querySelector('.elements').append(cardElement);
+});
