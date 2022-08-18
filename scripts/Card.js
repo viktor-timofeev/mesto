@@ -1,5 +1,3 @@
-import handleCardClick from "./index.js";
-
 export class Card {
 	constructor(data, templateSelector, handleCardClick) {
     this._name = data.name; 
@@ -21,7 +19,7 @@ export class Card {
 		this._element.querySelector('.elements__like').addEventListener('click', this._handleLikeCard);
     this._element.querySelector('.elements__trash').addEventListener('click', this._handleDeleteCard);
     this._element.querySelector('.elements__image').addEventListener('click', () => {
-      handleCardClick(this._link, this._name);
+      this._handleCardClick(this._link, this._name);
     })
 		}
 
@@ -31,6 +29,7 @@ export class Card {
 
   _handleDeleteCard = () => {
     this._element.remove();
+    this._element = null;
   }
 	
 }

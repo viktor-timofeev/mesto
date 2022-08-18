@@ -1,5 +1,8 @@
-import {Card} from './Card.js';
-import {validateConfig, FormValidator} from './FormValidator.js';
+import { Card } from './Card.js';
+import { FormValidator } from './FormValidator.js';
+import { initialCards } from './cards.js';
+import { validateConfig } from './constants.js';
+
 
 const selectors = {
   popup: ".popup",
@@ -46,14 +49,17 @@ const templateCard = document.querySelector(selectors.templateCard).content;
 const cardsList = document.querySelector(selectors.cardsList);
 const images = document.querySelectorAll(selectors.image);
 
+const newCard = {
+  name: inputCardName.value,
+  link: inputCardLink.value,
+};
+
 const validatorFormPopupProfileEdit = new FormValidator(validateConfig, formPopupProfileEdit);
 validatorFormPopupProfileEdit.enableValidation();
 
 const validatorFormPopupAddCard = new FormValidator(validateConfig, formPopupAddCard);
 validatorFormPopupAddCard.enableValidation();
   
-
-
 function showPopup(element) {
   element.classList.add("popup_opened");
   document.addEventListener("keydown", hidePopupByEscape);
@@ -66,21 +72,15 @@ function hidePopupByEscape(evt, popup) {
   }
 }
 
-function createCard() {
-  const newCard = {
-    name: inputCardName.value,
-    link: inputCardLink.value,
-  };
-  const card = new Card(newCard, '.elements-item', handleCardClick);
-  newCard.name = inputCardName.value;
-  newCard.link = inputCardLink.value;
-	const cardElement = card.generate();
+function createCard(item) {
+  const card = new Card(item, '.elements-item', handleCardClick);
+	const cardElement = card.generate(item);
   return cardElement;
 }
 
 function submitPopupCardAdd(evt) {
   evt.preventDefault();
-  cardsList.prepend(createCard());
+  cardsList.prepend(createCard(newCard));
   hidePopup(popupCardAdd);
 }
 
@@ -91,7 +91,7 @@ function submitPopupProfileEdit(evt) {
   hidePopup(popupProfileEdit);
 }
 
-export default function handleCardClick(link, name) {
+function handleCardClick(link, name) {
   showPopup(popupImage);
   popupImageItem.src = link;
   popupImageItem.alt = name;
@@ -135,7 +135,5 @@ popups.forEach((popup) => {
 })
 
 initialCards.forEach((item) => {
-	const card = new Card(item, '.elements-item', handleCardClick);
-	const cardElement = card.generate();
-	document.querySelector('.elements').append(cardElement);
+  cardsList.append(createCard(item));
 });
