@@ -3,7 +3,6 @@ import { FormValidator } from './FormValidator.js';
 import { initialCards } from './cards.js';
 import { validateConfig } from './constants.js';
 
-
 const selectors = {
   popup: ".popup",
   popupProfileEdit: ".popup_function_edit",
@@ -49,11 +48,6 @@ const templateCard = document.querySelector(selectors.templateCard).content;
 const cardsList = document.querySelector(selectors.cardsList);
 const images = document.querySelectorAll(selectors.image);
 
-const newCard = {
-  name: inputCardName.value,
-  link: inputCardLink.value,
-};
-
 const validatorFormPopupProfileEdit = new FormValidator(validateConfig, formPopupProfileEdit);
 validatorFormPopupProfileEdit.enableValidation();
 
@@ -80,6 +74,10 @@ function createCard(item) {
 
 function submitPopupCardAdd(evt) {
   evt.preventDefault();
+  const newCard = {
+    name: inputCardName.value,
+    link: inputCardLink.value,
+  };
   cardsList.prepend(createCard(newCard));
   hidePopup(popupCardAdd);
 }
