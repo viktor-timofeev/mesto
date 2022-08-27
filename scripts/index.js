@@ -2,6 +2,9 @@ import { Card } from './Card.js';
 import { FormValidator } from './FormValidator.js';
 import { initialCards } from './cards.js';
 import { validateConfig } from './constants.js';
+import { Section } from './Section.js';
+import { Popup } from './Popup.js';
+import { PopupWithImage } from './PopupWithImage.js';
 
 const selectors = {
   popup: ".popup",
@@ -53,6 +56,65 @@ validatorFormPopupProfileEdit.enableValidation();
 
 const validatorFormPopupAddCard = new FormValidator(validateConfig, formPopupAddCard);
 validatorFormPopupAddCard.enableValidation();
+
+const defaultCardList = new Section({
+  items: initialCards,
+  renderer: (item) => {
+    const card = createCard(item);
+    defaultCardList.addItem(card);
+  }
+  }, selectors.cardsList);
+  defaultCardList.renderItems();
+
+  function createCard(item) {
+    const card = new Card(item, selectors.templateCard, handleCardClick);
+    const cardElement = card.generate(item);
+    return cardElement;
+  } 
+
+  function handleCardClick() {
+    const popupWithImage = new PopupWithImage(item, selectors.popupImage);
+    popupWithImage.open();
+    /*showPopup(popupImage);
+    popupImageItem.src = link;
+    popupImageItem.alt = name;
+    popupImageCaption.textContent = name;*/
+  }
+
+  
+
+
+
+
+
+
+
+
+
+/*
+
+function showPopup(element) {
+    element.classList.add("popup_opened");
+    document.addEventListener("keydown", hidePopupByEscape);
+  }
+  
+  const defaultCardList = new Section({
+items: initialCards,
+renderer: (item) => {
+  const card = createCard(item);
+  defaultCardList.addItem(card);
+}
+}, cardContainer)
+defaultCardList.rendererItems();
+
+const defaultCardList = new Section({
+  items: initialCards,
+  renderer: (item) => {
+    const card = new Card(item, '.default-card');
+    const cardElement = card.generateCard();
+    defaultCardList.setItem(cardElement);
+  }
+}, cardListSelector);
   
 function showPopup(element) {
   element.classList.add("popup_opened");
@@ -66,11 +128,7 @@ function hidePopupByEscape(evt, popup) {
   }
 }
 
-function createCard(item) {
-  const card = new Card(item, '.elements-item', handleCardClick);
-	const cardElement = card.generate(item);
-  return cardElement;
-}
+
 
 function submitPopupCardAdd(evt) {
   evt.preventDefault();
@@ -89,12 +147,7 @@ function submitPopupProfileEdit(evt) {
   hidePopup(popupProfileEdit);
 }
 
-function handleCardClick(link, name) {
-  showPopup(popupImage);
-  popupImageItem.src = link;
-  popupImageItem.alt = name;
-  popupImageCaption.textContent = name;
-}
+
 
 buttonProfileEdit.addEventListener("click", function (evt) {
   showPopup(popupProfileEdit);
@@ -134,4 +187,4 @@ popups.forEach((popup) => {
 
 initialCards.forEach((item) => {
   cardsList.append(createCard(item));
-});
+}); */
