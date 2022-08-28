@@ -16,6 +16,7 @@ export class Popup {
       this._openedPopup = document.querySelector(".popup_opened")
       /*const activePopup = document.querySelector(".popup_opened");*/
       this.close();
+      
   }
 }
 

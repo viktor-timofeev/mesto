@@ -16,11 +16,7 @@ export class PopupWithForm extends Popup {
   }*/
 
   setEventListeners () {
-    
-    this._profileForm.addEventListener("submit", (evt) => {
-      this._handleFormSubmit;
-      //evt.preventDefault()
-    });
+     this._profileForm.addEventListener("submit", this._handleFormSubmit);
     this._closeButton.addEventListener("click", (evt) => this.close);
     this._popup.addEventListener("mousedown", (evt) => this._handleClickClose);
   }

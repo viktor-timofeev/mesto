@@ -84,47 +84,26 @@ const defaultCardList = new Section({
     popupWithImage.setEventListeners();
   }
 
-  const popupWithFormCardAdd = new PopupWithForm(selectors.popupCardAdd,
-     (data) => {
-      const card = new Card ({link: data.link, name: data.name}, selectors.templateCard, handleCardClick)
-      defaultCardList.addItem(card);
-      submitPopupCardAdd(evt);
+  const popupWithFormCardAdd = new PopupWithForm(
+    selectors.popupCardAdd,
+     (evt) => {
       evt.preventDefault();
-      })
-      popupWithFormCardAdd.setEventListeners();
-    
+      const card = new Card ({link: inputCardLink.value, name: inputCardName.value}, selectors.templateCard, () => {
+        popupWithImage.open(data.name, data.link)
+     });
+    defaultCardList.addItem(card.generate());
+   popupWithFormCardAdd.setEventListeners();
+    }
+  );
   
-
-  const popupWithFormProfileEdit = new PopupWithForm(selectors.popupProfileEdit, () => {
-    submitPopupProfileEdit(evt);
-  });
-  
-
-  /*function handleCardClick(link, name) {
-    showPopup(popupImage);
-    popupImageItem.src = link;
-    popupImageItem.alt = name;
-    popupImageCaption.textContent = name;
-  }*/
-
-  function submitPopupCardAdd(evt) {
-    //evt.preventDefault();
-    const newCard = {
-      name: inputCardName.value,
-      link: inputCardLink.value,
-    };
-    cardsList.prepend(createCard(newCard));
-    hidePopup(popupCardAdd);
-  }
-
-  function submitPopupProfileEdit(evt) {
-    //evt.preventDefault();
+    const popupWithFormProfileEdit = new PopupWithForm(selectors.popupProfileEdit, (evt) => {
+    evt.preventDefault();
     profileName.textContent = inputProfileName.value;
     profileInfo.textContent = inputProfileInfo.value;
-    hidePopup(popupProfileEdit);
-  }
+    popupWithFormProfileEdit.setEventListeners();
+  });
 
-  buttonCardAdd.addEventListener("click", () => {
+   buttonCardAdd.addEventListener("click", () => {
     popupWithFormCardAdd.open();
     popupWithFormCardAdd.setEventListeners();
     /*showPopup(popupCardAdd);
@@ -142,6 +121,23 @@ buttonProfileEdit.addEventListener("click", () => {
     inputCardLink.value = "";*/
     validatorFormPopupProfileEdit.resetValidation();
   });
+
+  /* function submitPopupCardAdd(evt) {
+    evt.preventDefault();
+    const newCard = {
+      name: inputCardName.value,
+      link: inputCardLink.value,
+    };
+    cardsList.prepend(createCard(newCard));
+    hidePopup(popupCardAdd);
+  }*/
+
+  /*function submitPopupProfileEdit(evt) {
+    evt.preventDefault();
+    profileName.textContent = inputProfileName.value;
+    profileInfo.textContent = inputProfileInfo.value;
+    hidePopup(popupProfileEdit);
+  }*/
 
 
 
