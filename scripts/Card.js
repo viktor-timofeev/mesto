@@ -1,7 +1,7 @@
 export class Card {
-	constructor(data, templateSelector, handleCardClick) {
-    this._name = data.name; 
-    this._link = data.link;
+	constructor({ link, name }, templateSelector, handleCardClick) {
+    this._name = name; 
+    this._link = link;
     this._templateSelector = templateSelector;
     this._handleCardClick = handleCardClick; 
 	}
@@ -15,11 +15,15 @@ export class Card {
     return this._element;
   }
 
+  _handleImageClick() {
+    this._handleCardClick({ link: this._link, name: this._name});
+  }
+
   _setEventListeners() {
     this._like = this._element.querySelector('.elements__like');
     this._like.addEventListener('click', this._handleLikeCard);
     this._element.querySelector('.elements__trash').addEventListener('click', this._handleDeleteCard);
-    this._element.querySelector('.elements__image').addEventListener('click', () => this._handleCardClick);
+    this._element.querySelector('.elements__image').addEventListener('click', () => this._handleCardClick(this._link, this._name));
 		}
 
   _handleLikeCard = () => {
