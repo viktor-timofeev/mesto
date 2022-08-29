@@ -61,17 +61,22 @@ validatorFormPopupAddCard.enableValidation();
 const defaultCardList = new Section({
   items: initialCards,
   renderer: (item) => {
-    const card = createCard(item);
-    defaultCardList.addItem(card);
+    const card = new Card(
+      {
+        link: item.link,
+        name: item.name
+      }, selectors.templateCard, () => popupWithImage.open(card)/*handleCardClick*/);
+    const cardElement = card.generate(item);
+    defaultCardList.addItem(cardElement);
   }
   }, selectors.cardsList);
   defaultCardList.renderItems();
 
-  function createCard(item) {
+  /*function createCard(item) {
     const card = new Card({link: item.link, name: item.name}, selectors.templateCard, handleCardClick);
     const cardElement = card.generate(item);
     return cardElement;
-  } 
+  } */
 
   const popupWithImage = new PopupWithImage(selectors.popupImage);
   
@@ -86,22 +91,28 @@ const defaultCardList = new Section({
 
   const popupWithFormCardAdd = new PopupWithForm(
     selectors.popupCardAdd,
-     (evt) => {
-      evt.preventDefault();
-      const card = new Card ({link: inputCardLink.value, name: inputCardName.value}, selectors.templateCard, () => {
+     () => {
+      const card = new Card ({
+        link: inputCardLink.value,
+        name: inputCardName.value
+        },
+        selectors.templateCard, () => {
         popupWithImage.open(data.name, data.link)
-     });
-    defaultCardList.addItem(card.generate());
-   popupWithFormCardAdd.setEventListeners();
+      });
+      defaultCardList.addItem(card.generate());
+      popupWithFormCardAdd.close();
     }
   );
   
-    const popupWithFormProfileEdit = new PopupWithForm(selectors.popupProfileEdit, (evt) => {
-    evt.preventDefault();
+  const popupWithFormProfileEdit = new PopupWithForm(
+    selectors.popupProfileEdit,
+    () => {
     profileName.textContent = inputProfileName.value;
     profileInfo.textContent = inputProfileInfo.value;
     popupWithFormProfileEdit.setEventListeners();
-  });
+    popupWithFormProfileEdit.close();
+    }
+  );
 
    buttonCardAdd.addEventListener("click", () => {
     popupWithFormCardAdd.open();
@@ -111,7 +122,6 @@ const defaultCardList = new Section({
     inputCardLink.value = "";*/
     validatorFormPopupAddCard.resetValidation();
   });
-
 
 buttonProfileEdit.addEventListener("click", () => {
     popupWithFormProfileEdit.open();

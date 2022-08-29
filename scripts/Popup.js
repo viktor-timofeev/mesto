@@ -16,7 +16,6 @@ export class Popup {
       this._openedPopup = document.querySelector(".popup_opened")
       /*const activePopup = document.querySelector(".popup_opened");*/
       this.close();
-      
   }
 }
 
@@ -32,7 +31,7 @@ close() {
   }
 
   setEventListeners() {
-    this._closeButton.addEventListener("click", () => this.close);
-    this._popup.addEventListener("mousedown", (evt) => this._handleClickClose);
+    this._closeButton.addEventListener("click", () => this.close());
+    this._popup.addEventListener("mousedown", (evt) => this._handleClickClose(evt));
   }
   }
