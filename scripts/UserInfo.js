@@ -1,20 +1,23 @@
 export class UserInfo {
-	constructor({SelectorProfileName, SelectorProfileInfo}) {
-    this._SelectorProfileName = SelectorProfileName;
-    this._SelectorProfileInfo = SelectorProfileInfo;
-    this._name = document.querySelector(this._SelectorProfileName).textContent;
-    this._description = document.querySelector(this._SelectorProfileInfo).textContent;
+	constructor(SelectorProfileName, SelectorProfileInfo) {
+    this._selectorProfileName = SelectorProfileName;
+    this._selectorProfileInfo = SelectorProfileInfo;
+    this._profileName = document.querySelector(this._selectorProfileName).textContent;
+    this._profileInfo = document.querySelector(this._selectorProfileInfo).textContent;
+    //this._profileNameInPopup = document.querySelector(this._selectorProfileName).value;
+    //this._profileInfoInPopup = document.querySelector(this._selectorProfileInfo).value;
 	}
 
   getUserInfo() {
-    return {name: this._name,
-    description: this._description}
+    return {
+      name: this._profileName,
+      info: this._profileInfo
+    }
   }
 
-  setUserInfo() {
-    this._name = this.getUserInfo.name;
-    this._description = this.getUserInfo.description;
+  setUserInfo(item) {
+    this._profileName = item.name;
+    this._profileInfo = item.info;
   }
-  
 }    
 
