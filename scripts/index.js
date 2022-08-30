@@ -94,15 +94,15 @@ const defaultCardList = new Section({
   );
 
   
-  const userData = new UserInfo(selectors.inputProfileName, selectors.inputProfileInfo);
-  const itemUserData = userData.getUserInfo();
+  const userInfo = new UserInfo(selectors.inputProfileName, selectors.inputProfileInfo);
+  //const itemUserData = userData.getUserInfo();
 
   const popupWithFormProfileEdit = new PopupWithForm(
     selectors.popupProfileEdit,
-    () => {
+    (info) => {
     popupWithFormProfileEdit.setEventListeners();
     popupWithFormProfileEdit.close();
-    userData.setUserInfo(itemUserData);
+    userInfo.setUserInfo(info.name, info.info);
     }
   );
 

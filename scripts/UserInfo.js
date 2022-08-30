@@ -4,8 +4,6 @@ export class UserInfo {
     this._selectorProfileInfo = SelectorProfileInfo;
     this._profileName = document.querySelector(this._selectorProfileName).textContent;
     this._profileInfo = document.querySelector(this._selectorProfileInfo).textContent;
-    //this._profileNameInPopup = document.querySelector(this._selectorProfileName).value;
-    //this._profileInfoInPopup = document.querySelector(this._selectorProfileInfo).value;
 	}
 
   getUserInfo() {
