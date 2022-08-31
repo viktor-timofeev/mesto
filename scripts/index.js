@@ -1,12 +1,12 @@
-import { Card } from './Card.js';
-import { FormValidator } from './FormValidator.js';
-import { initialCards } from './cards.js';
-import { validateConfig } from './constants.js';
-import { Section } from './Section.js';
-import { Popup } from './Popup.js';
-import { PopupWithImage } from './PopupWithImage.js';
-import { PopupWithForm } from './PopupWithForm.js';
-import { UserInfo } from './UserInfo.js';
+import { Card } from "./Card.js";
+import { FormValidator } from "./FormValidator.js";
+import { initialCards } from "./cards.js";
+import { validateConfig } from "./constants.js";
+import { Section } from "./Section.js";
+import { Popup } from "./Popup.js";
+import { PopupWithImage } from "./PopupWithImage.js";
+import { PopupWithForm } from "./PopupWithForm.js";
+import { UserInfo } from "./UserInfo.js";
 
 const selectors = {
   popup: ".popup",
@@ -59,64 +59,74 @@ validatorFormPopupProfileEdit.enableValidation();
 const validatorFormPopupAddCard = new FormValidator(validateConfig, formPopupAddCard);
 validatorFormPopupAddCard.enableValidation();
 
-const defaultCardList = new Section({
+const defaultCardList = new Section(
+  {
   items: initialCards,
   renderer: (item) => {
     const card = new Card(
       {
         link: item.link,
         name: item.name
-      }, selectors.templateCard, (link, name) => 
-      {popupWithImage.open(link, name);/*handleCardClick*/
-      popupWithImage.setEventListeners();
-    });
+      },
+      selectors.templateCard,
+      (link, name) => {
+        popupWithImage.open(link, name);
+        popupWithImage.setEventListeners();
+      }
+    );
     const cardElement = card.generate(item);
     defaultCardList.addItem(cardElement);
-  }
-  }, selectors.cardsList);
-  defaultCardList.renderItems();
+  },
+},
+selectors.cardsList
+);
+defaultCardList.renderItems();
 
-  const popupWithImage = new PopupWithImage(selectors.popupImage);
+const popupWithImage = new PopupWithImage(selectors.popupImage);
 
-  const popupWithFormCardAdd = new PopupWithForm(
-    selectors.popupCardAdd,
-     () => {
-      const card = new Card ({
-        link: inputCardLink.value,
-        name: inputCardName.value
-        },
-        selectors.templateCard, () => {
+const popupWithFormCardAdd = new PopupWithForm(selectors.popupCardAdd, () => {
+    const card = new Card({
+      link: inputCardLink.value,
+      name: inputCardName.value,
+    },
+      selectors.templateCard,
+      () => {
         popupWithImage.open(data.name, data.link)
-      });
-      defaultCardList.addItem(card.generate());
-      popupWithFormCardAdd.close();
-    }
-  );
+      }
+    );
+    defaultCardList.addItem(card.generate());
+    popupWithFormCardAdd.close();
+});
 
-  
-  const userInfo = new UserInfo(selectors.inputProfileName, selectors.inputProfileInfo);
-  //const itemUserData = userData.getUserInfo();
+popupWithFormCardAdd.setEventListeners();
+const userInfo = new UserInfo(selectors.profileTitle, selectors.profileInfo);
+//const userData = userInfo.getUserInfo();
 
-  const popupWithFormProfileEdit = new PopupWithForm(
-    selectors.popupProfileEdit,
-    (info) => {
-    popupWithFormProfileEdit.setEventListeners();
+const popupWithFormProfileEdit = new PopupWithForm(
+  selectors.popupProfileEdit,
+  (inputValues) => {
+    const data = {
+      name: inputValues["name-input"],
+      info: inputValues["occupation-input"]
+    };
+    userInfo.setUserInfo(data);
     popupWithFormProfileEdit.close();
-    userInfo.setUserInfo(info.name, info.info);
-    }
-  );
+  }
+);
 
-   buttonCardAdd.addEventListener("click", () => {
-    popupWithFormCardAdd.open();
-    popupWithFormCardAdd.setEventListeners();
-    validatorFormPopupAddCard.resetValidation();
-  });
+popupWithFormProfileEdit.setEventListeners();
+
+buttonCardAdd.addEventListener("click", () => {
+  popupWithFormCardAdd.open();
+  popupWithFormCardAdd.setEventListeners();
+  validatorFormPopupAddCard.resetValidation();
+});
 
 buttonProfileEdit.addEventListener("click", () => {
-    popupWithFormProfileEdit.open();
-    popupWithFormProfileEdit.setEventListeners();
-    validatorFormPopupProfileEdit.resetValidation();
-  });
+  popupWithFormProfileEdit.open();
+  popupWithFormProfileEdit.setEventListeners();
+  validatorFormPopupProfileEdit.resetValidation();
+});
 
 
 
