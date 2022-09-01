@@ -24,12 +24,6 @@ export class PopupWithForm extends Popup {
       evt.preventDefault();
       this._handleFormSubmit(this._getInputValues());
     };
-
-   /*this._profileForm.addEventListener("submit", (evt) => {
-      evt.preventDefault();
-      this._handleFormSubmit(this._getInputValues());
-      //   this._profileForm.reset();
-    });*/
   }
 
   close() {

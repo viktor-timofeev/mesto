@@ -9,7 +9,6 @@
   <meta name="keywords" content="Россия, туризм, лайк, интерактив, фото, путешествия">
   <meta name="author" content="Виктор Тимофеев">
   <title>Mesto</title>
-  <link rel="stylesheet" href="./pages/index.css">
 </head>
 
 <body class="page">
@@ -60,11 +59,14 @@
       <button class="popup__close-button" type="button"></button>
       <form class="popup__form popup__form_function_edit" name="touristProfile" method="post" novalidate>
         <h2 class="popup__title">Редактировать профиль</h2>
-        <input id="name-input" class="popup__input popup__input_type_title" name="name-input" placeholder="Имя" value="" type="text" minlength="2" maxlength="40" required>
+        <input id="name-input" class="popup__input popup__input_type_title" name="name-input" placeholder="Имя" value=""
+          type="text" minlength="2" maxlength="40" required>
         <span id="name-input-error" class="popup__input-error name-input-error"></span>
-        <input id="occupation-input" class="popup__input popup__input_type_subtitle" name="occupation-input" placeholder="О себе" value="" type="text" minlength="2" maxlength="200" required>
+        <input id="occupation-input" class="popup__input popup__input_type_subtitle" name="occupation-input"
+          placeholder="О себе" value="" type="text" minlength="2" maxlength="200" required>
         <span id="occupation-input-error" class="popup__input-error occupation-input-error"></span>
-        <button class="popup__submit-button popup__submit-button_type_inactive" type="submit" disabled>Сохранить</button>
+        <button class="popup__submit-button popup__submit-button_type_inactive" type="submit"
+          disabled>Сохранить</button>
       </form>
     </div>
   </div>
@@ -74,9 +76,11 @@
       <button class="popup__close-button" type="button"></button>
       <form class="popup__form popup__form_function_add" name="newCard" method="post" novalidate>
         <h2 class="popup__title">Новое место</h2>
-        <input id="title-input" class="popup__input popup__input_type_name" name="title-input" placeholder="Название" value="" type="text" minlength="2" maxlength="30" required>
+        <input id="title-input" class="popup__input popup__input_type_name" name="title-input" placeholder="Название"
+          value="" type="text" minlength="2" maxlength="30" required>
         <span id="title-input-error" class="popup__input-error title-input-error"></span>
-        <input id="link-input" class="popup__input popup__input_type_link" name="link-input" placeholder="Ссылка на картинку" value="" type="url" required>
+        <input id="link-input" class="popup__input popup__input_type_link" name="link-input"
+          placeholder="Ссылка на картинку" value="" type="url" required>
         <span id="link-input-error" class="popup__input-error link-input-error"></span>
         <button class="popup__submit-button popup__submit-button_type_inactive" type="submit" disabled>Создать</button>
       </form>
@@ -91,7 +95,6 @@
       <h2 class="popup__image-caption"></h2>
     </div>
   </div>
-  <script src="./scripts/index.js" type="module"></script>
 
 </body>
 
