@@ -13,7 +13,6 @@ export class Popup {
 
   _handleEscClose(evt) {
     if (evt.key === "Escape") {
-      this._openedPopup = document.querySelector(".popup_opened");
       this.close();
     }
   }

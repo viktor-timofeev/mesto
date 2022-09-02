@@ -4,8 +4,6 @@ import {  validateConfig,
           buttonCardAdd,
           formPopupProfileEdit,
           formPopupAddCard,
-      //    inputCardName,
-      //    inputCardLink,
         } from "../utils/constants.js"; 
 import { Card } from "../components/Card.js";
 import { FormValidator } from "../components/FormValidator.js";
@@ -75,6 +73,7 @@ defaultCardList.renderItems();
 //реализация попапа добавления новой карточки
 
 const popupWithImage = new PopupWithImage(selectors.popupImage);
+popupWithImage.setEventListeners();
 
 const popupWithFormCardAdd = new PopupWithForm(selectors.popupCardAdd, 
   (data) => {
@@ -116,10 +115,10 @@ function createCard(item) {
     {
       title: item.title,
       link: item.link
-    }, '.elements-item',
+    }, selectors.templateCard,
     (title, link) => {
       popupWithImage.open(item);
-      popupWithImage.setEventListeners();
+  //    popupWithImage.setEventListeners();
     });
 	const cardElement = card.generate(item);
   return cardElement;
