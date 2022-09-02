@@ -7,13 +7,13 @@ export class UserInfo {
   getUserInfo() {
     return {
       name: this._profileName.textContent,
-      info: this._profileInfo.textContent,
+      occupation: this._profileInfo.textContent,
     };
   }
 
   setUserInfo(data) {
     this._profileName.textContent = data.name;
-    this._profileInfo.textContent = data.info;
+    this._profileInfo.textContent = data.occupation;
   }
 }
 
