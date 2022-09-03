@@ -73,7 +73,7 @@ defaultCardList.renderItems();
 //реализация попапа добавления новой карточки
 
 const popupWithImage = new PopupWithImage(selectors.popupImage);
-popupWithImage.setEventListeners();
+
 
 const popupWithFormCardAdd = new PopupWithForm(selectors.popupCardAdd, 
   (data) => {
@@ -94,17 +94,22 @@ const popupWithFormProfileEdit = new PopupWithForm(
   }
 );
 
+
 //слушатели
+
+popupWithImage.setEventListeners();
+popupWithFormCardAdd.setEventListeners();
+popupWithFormProfileEdit.setEventListeners();
 
 buttonCardAdd.addEventListener("click", () => {
   popupWithFormCardAdd.open();
-  popupWithFormCardAdd.setEventListeners();
+  //popupWithFormCardAdd.setEventListeners();
   validatorFormPopupAddCard.resetValidation();
 });
 
 buttonProfileEdit.addEventListener("click", () => {
   popupWithFormProfileEdit.open();
-  popupWithFormProfileEdit.setEventListeners();
+  //popupWithFormProfileEdit.setEventListeners();
   validatorFormPopupProfileEdit.resetValidation();
   const data = userInfo.getUserInfo();
   popupWithFormProfileEdit.setInputValues(data);
