@@ -115,7 +115,10 @@ api.getCards()
   
   const defaultCardList = new Section(
     {
-      items: data.map(item => {item.title, item.link}),
+      items: data.map(item => {
+        return {title: item.name,
+                link: item.link};
+    }),
       renderer: (item) => {
         const card = createCard(item);
         defaultCardList.addItem(card);
