@@ -22,7 +22,7 @@ import kholmogorskyRayonImage from '../images/kholmogorsky-rayon.jpg';
 import baikalImage from '../images/baikal.jpg';
 import { Api } from "../components/Api.js";
 
-const initialCards = [
+/*const initialCards = [
   {
     title: 'Архыз',
     link: arkhyzImage
@@ -47,7 +47,7 @@ const initialCards = [
     title: 'Байкал',
     link: baikalImage
   }
-];
+];*/
 
 //валидация
 
@@ -59,7 +59,7 @@ validatorFormPopupAddCard.enableValidation();
 
 //реализация массива заготовленных карточек
 
-const defaultCardList = new Section(
+/*const defaultCardList = new Section(
   {
     items: initialCards,
     renderer: (item) => {
@@ -69,7 +69,7 @@ const defaultCardList = new Section(
   },
   selectors.cardsList
 );
-defaultCardList.renderItems();
+defaultCardList.renderItems(); */
 
 //реализация попапа добавления новой карточки
 
@@ -108,6 +108,26 @@ const popupWithFormProfileEdit = new PopupWithForm(
 
 api.getUserInfo()
 .then((res) => { userInfo.setUserInfo(res) })
+.catch((error) => console.log(`Ошибка: ${error}`));
+
+api.getCards()
+.then(data => { 
+  
+  const defaultCardList = new Section(
+    {
+      items: data.map(item => {item.title, item.link}),
+      renderer: (item) => {
+        const card = createCard(item);
+        defaultCardList.addItem(card);
+      }, 
+    },
+    selectors.cardsList
+  );
+  defaultCardList.renderItems();
+
+
+
+ })
 .catch((error) => console.log(`Ошибка: ${error}`));
 
 //слушатели

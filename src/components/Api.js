@@ -9,8 +9,8 @@ getUserInfo() {
       method: "GET", 
       headers: this._headers 
   }).then((res) => {
-    debugger; 
-    //console.log(res);
+    return res.json();
+
 });
 }
 
@@ -19,7 +19,7 @@ getCards() {
     method: "GET", 
     headers: this._headers, 
 }).then((res) => {
-   console.log(res);
+  return res.json();
 });
 }
 
