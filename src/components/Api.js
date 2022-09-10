@@ -9,7 +9,8 @@ getUserInfo() {
       method: "GET", 
       headers: this._headers 
   }).then((res) => {
-     console.log(res);
+    debugger; 
+    //console.log(res);
 });
 }
 
