@@ -8,17 +8,17 @@ getUserInfo() {
   return fetch(`${this._address}/users/me`, {
       method: "GET", 
       headers: this._headers 
-  }).then((res) => {
+  }).then(res => {
     return res.json();
 
 });
 }
 
 getCards() {
-  return fetch(`${this._address}/users/me`, {
+  return fetch(`${this._address}/cards`, {
     method: "GET", 
     headers: this._headers, 
-}).then((res) => {
+}).then(res => {
   return res.json();
 });
 }

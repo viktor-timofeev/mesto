@@ -107,19 +107,19 @@ const popupWithFormProfileEdit = new PopupWithForm(
 );
 
 api.getUserInfo()
-.then((res) => { userInfo.setUserInfo(res) })
-.catch((error) => console.log(`Ошибка: ${error}`));
+.then(res => { userInfo.setUserInfo(res) })
+.catch(error => console.log(`Ошибка: ${error}`));
 
 api.getCards()
 .then(data => { 
   
   const defaultCardList = new Section(
     {
-      items: data.map(item => {
+      items: data.products.map(item => {
         return {title: item.name,
                 link: item.link};
     }),
-      renderer: (item) => {
+      renderer: item => {
         const card = createCard(item);
         defaultCardList.addItem(card);
       }, 
@@ -127,9 +127,6 @@ api.getCards()
     selectors.cardsList
   );
   defaultCardList.renderItems();
-
-
-
  })
 .catch((error) => console.log(`Ошибка: ${error}`));
 
