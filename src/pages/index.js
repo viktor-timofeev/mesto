@@ -20,6 +20,7 @@ import ivanovoImage from '../images/ivanovo.jpg';
 import kamchatkaImage from '../images/kamchatka.jpg';
 import kholmogorskyRayonImage from '../images/kholmogorsky-rayon.jpg';
 import baikalImage from '../images/baikal.jpg';
+import { Api } from "../components/Api.js";
 
 const initialCards = [
   {
@@ -94,6 +95,20 @@ const popupWithFormProfileEdit = new PopupWithForm(
   }
 );
 
+//сервер
+
+  const api = new Api({
+  baseUrl: 'https://nomoreparties.co/v1/cohort-50',
+  headers: {
+  authorization: "5d18e568-66bc-4809-86d6-8fc39fab9075", 
+  "content-type": "application/json" 
+}
+}
+);
+
+api.getUserInfo()
+.then((res) => { userInfo.setUserInfo(res) })
+.catch((error) => console.log(`Ошибка: ${error}`));
 
 //слушатели
 
