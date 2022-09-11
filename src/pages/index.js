@@ -102,34 +102,18 @@ const popupWithFormProfileEdit = new PopupWithForm(
   headers: {
   authorization: "5d18e568-66bc-4809-86d6-8fc39fab9075", 
   "content-type": "application/json" 
-}
-}
-);
+  }
+  });
 
-api.getUserInfo()
-.then(res => { userInfo.setUserInfo(res) })
-.catch(error => console.log(`Ошибка: ${error}`));
+Promise.all([api.getUserInfo(), api.getInitialCards()])
+.then(([userData, cards]) => {
 
-api.getInitialCards()
-.then(cards => { 
-  cards.reverse();
-  defaultCardList.renderItems(cards)
-  /*const defaultCardList = new Section(
-    {
-      items: data.map(item => {
-        return {title: item.name,
-                link: item.link};
-    }),
-      renderer: item => {
-        const card = createCard(item);
-        defaultCardList.addItem(card);
-      }, 
-    },
-    selectors.cardsList
-  );
-  defaultCardList.renderItems();*/
- })
-.catch((error) => console.log(`Ошибка: ${error}`));
+userInfo.setUserInfo(userData);
+
+cards.reverse();
+defaultCardList.renderItems(cards);
+})
+.catch((error) => console.log(`Ошибка: ${error}`))
 
 //слушатели
 
