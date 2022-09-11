@@ -59,7 +59,7 @@ validatorFormPopupAddCard.enableValidation();
 
 //реализация массива заготовленных карточек
 
-/*const defaultCardList = new Section(
+const defaultCardList = new Section(
   {
     items: initialCards,
     renderer: (item) => {
@@ -69,7 +69,7 @@ validatorFormPopupAddCard.enableValidation();
   },
   selectors.cardsList
 );
-defaultCardList.renderItems(); */
+//defaultCardList.renderItems(); 
 
 //реализация попапа добавления новой карточки
 
@@ -110,12 +110,13 @@ api.getUserInfo()
 .then(res => { userInfo.setUserInfo(res) })
 .catch(error => console.log(`Ошибка: ${error}`));
 
-api.getCards()
-.then(data => { 
-  
-  const defaultCardList = new Section(
+api.getInitialCards()
+.then(cards => { 
+  cards.reverse();
+  defaultCardList.renderItems(cards)
+  /*const defaultCardList = new Section(
     {
-      items: data.products.map(item => {
+      items: data.map(item => {
         return {title: item.name,
                 link: item.link};
     }),
@@ -126,7 +127,7 @@ api.getCards()
     },
     selectors.cardsList
   );
-  defaultCardList.renderItems();
+  defaultCardList.renderItems();*/
  })
 .catch((error) => console.log(`Ошибка: ${error}`));
 

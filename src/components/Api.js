@@ -14,10 +14,10 @@ getUserInfo() {
 });
 }
 
-getCards() {
+getInitialCards() {
   return fetch(`${this._address}/cards`, {
     method: "GET", 
-    headers: this._headers, 
+    headers: this._headers
 }).then(res => {
   return res.json();
 });
