@@ -23,13 +23,13 @@ getInitialCards() {
 });
 }
 
-editProfile(data) {
+editProfile() {
   return fetch(`${this._address}/users/me`, {
     method: 'PATCH',
     headers: this._headers,
     body: JSON.stringify({
-      name: data.name,
-      about: data.about
+      name: name,
+      about: about
     })
   }).then(res => {
     return res.json();
