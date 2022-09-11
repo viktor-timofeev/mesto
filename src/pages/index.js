@@ -61,7 +61,6 @@ validatorFormPopupAddCard.enableValidation();
 
 const defaultCardList = new Section(
   {
-    items: initialCards,
     renderer: (item) => {
       const card = createCard(item);
       defaultCardList.addItem(card);
