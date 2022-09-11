@@ -76,7 +76,7 @@ const popupWithFormProfileEdit = new PopupWithForm(
   }
   });
 
-Promise.all([api.getUserInfo(), api.getInitialCards(), api.editProfile(userData)])
+Promise.all([api.getUserInfo(), api.getInitialCards(), api.editProfile()])
 .then(([userData, cards]) => {
 
 userInfo.setUserInfo(userData);
