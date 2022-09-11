@@ -76,7 +76,7 @@ const popupWithFormProfileEdit = new PopupWithForm(
   }
   });
 
-Promise.all([api.getUserInfo(), api.getInitialCards(), api.editProfile()])
+Promise.all([api.getUserInfo(), api.getInitialCards(), api.editProfile(userData)])
 .then(([userData, cards]) => {
 
 userInfo.setUserInfo(userData);
@@ -109,7 +109,7 @@ buttonProfileEdit.addEventListener("click", () => {
 function createCard(item) {
   const card = new Card(
     {
-      title: item.title,
+      title: item.name,
       link: item.link
     }, selectors.templateCard,
     (title, link) => {

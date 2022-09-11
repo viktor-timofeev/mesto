@@ -23,15 +23,17 @@ getInitialCards() {
 });
 }
 
-editProfile() {
+editProfile(data) {
   return fetch(`${this._address}/users/me`, {
     method: 'PATCH',
     headers: this._headers,
     body: JSON.stringify({
-      name: 'Marie Skłodowska Curie',
-      about: 'Physicist and Chemist'
+      name: data.name,
+      about: data.about
     })
-  }); 
+  }).then(res => {
+    return res.json();
+  });
 }
 
 /*  fetch('https://mesto.nomoreparties.co/v1/cohort-50/cards', {
