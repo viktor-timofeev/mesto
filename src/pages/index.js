@@ -22,33 +22,6 @@ import kholmogorskyRayonImage from '../images/kholmogorsky-rayon.jpg';
 import baikalImage from '../images/baikal.jpg';
 import { Api } from "../components/Api.js";
 
-/*const initialCards = [
-  {
-    title: 'Архыз',
-    link: arkhyzImage
-  },
-  {
-    title: 'Челябинская область',
-    link: chelyabinskOblastImage
-  },
-  {
-    title: 'Иваново',
-    link: ivanovoImage
-  },
-  {
-    title: 'Камчатка',
-    link: kamchatkaImage
-  },
-  {
-    title: 'Холмогорский район',
-    link: kholmogorskyRayonImage
-  },
-  {
-    title: 'Байкал',
-    link: baikalImage
-  }
-];*/
-
 //валидация
 
 const validatorFormPopupProfileEdit = new FormValidator(validateConfig, formPopupProfileEdit);
@@ -68,7 +41,6 @@ const defaultCardList = new Section(
   },
   selectors.cardsList
 );
-//defaultCardList.renderItems(); 
 
 //реализация попапа добавления новой карточки
 
@@ -84,7 +56,7 @@ const popupWithFormCardAdd = new PopupWithForm(selectors.popupCardAdd,
 
 const userInfo = new UserInfo(selectors.profileTitle, selectors.profileInfo);
 
-//реализация поапа с данными профиля
+//реализация попапа с данными профиля
 
 const popupWithFormProfileEdit = new PopupWithForm(
   selectors.popupProfileEdit,
@@ -104,7 +76,7 @@ const popupWithFormProfileEdit = new PopupWithForm(
   }
   });
 
-Promise.all([api.getUserInfo(), api.getInitialCards()])
+Promise.all([api.getUserInfo(), api.getInitialCards(), api.editProfile()])
 .then(([userData, cards]) => {
 
 userInfo.setUserInfo(userData);

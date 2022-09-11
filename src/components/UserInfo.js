@@ -7,7 +7,7 @@ export class UserInfo {
   getUserInfo() {
     return {
       name: this._profileName.textContent,
-      occupation: this._profileInfo.textContent,
+      about: this._profileInfo.textContent,
     };
   }
 
