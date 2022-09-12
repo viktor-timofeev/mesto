@@ -76,7 +76,7 @@ const popupWithFormProfileEdit = new PopupWithForm(
   }
   });
 
-Promise.all([api.getUserInfo(), api.getInitialCards(), api.editProfile()])
+Promise.all([api.getUserInfo(), api.getInitialCards(), api.editProfile(), api.addNewCard()])
 .then(([userData, cards]) => {
 
 userInfo.setUserInfo(userData);
@@ -108,9 +108,21 @@ buttonProfileEdit.addEventListener("click", () => {
 
 function createCard(item) {
   const card = new Card(
-    {
-      title: item.name,
-      link: item.link
+    {  data: {
+          title: item.name,
+          link: item.link,
+          likes: item.likes
+        },
+        handleCardClick: () => {
+          popupWithImage.open(item);
+        },
+        handleLikeClick: (card) => {
+          this._like.classList.toggle("elements__like_state_active");
+        },
+        handleDeleteIconClick: (card) => {
+          this._element.remove();
+          this._element = null;
+      },
     }, selectors.templateCard,
     (title, link) => {
       popupWithImage.open(item);

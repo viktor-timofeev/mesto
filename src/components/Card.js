@@ -1,13 +1,13 @@
 export class Card {
-  constructor({ title, link }, templateSelector, handleCardClick) {
-    this._title = title;
-    this._link = link;
-    this._templateSelector = templateSelector;
+  constructor({ data, handleCardClick, handleLikeCard, handleDeleteCard }, templateSelector) {
+    this._data = data;
     this._handleCardClick = handleCardClick;
+    this._handleLikeCard = handleLikeCard;
+    this._handleDeleteCard = handleDeleteCard;
+    this._templateSelector = templateSelector;
     this._element = document.querySelector(this._templateSelector).content.querySelector('.elements__element').cloneNode(true);
     this._like = this._element.querySelector('.elements__like');
     this._image = this._element.querySelector('.elements__image');
-
   }
 
   generate = (container) => {
