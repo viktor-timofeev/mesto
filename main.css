@@ -989,6 +989,9 @@ template {
   text-align: center;
   color: #000000;
 }
+.elements__like-group {
+  position: relative;
+}
 .elements__like_state_active {
   background-image: url(35948469632d0421d697.svg);
   opacity: 100%;	
