@@ -109,7 +109,7 @@ const popupWithFormProfileEdit = new PopupWithForm(
 
 api.getInitialCards()
 .then((cards) => {
-  //cards.reverse();
+  cards.reverse();
   defaultCardList.renderItems(cards);
 })
 .catch(error => console.log(`Ошибка: ${error}`));
