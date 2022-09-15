@@ -82,9 +82,9 @@ const popupWithFormProfileEdit = new PopupWithForm(
 
 Promise.all([api.getUserInfo(), api.getInitialCards()])
 .then(([userData, cards])=> {
-  userInfo.setUserInfo(userData);
   cards.reverse();
   defaultCardList.renderItems(cards);
+  userInfo.setUserInfo(userData);
 })
 .catch(error => console.log(`Ошибка: ${error}`));
 
