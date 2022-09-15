@@ -35,15 +35,13 @@ validatorFormPopupAddCard.enableValidation();
 const defaultCardList = new Section(
   {
     renderer: (item) => {
-      const card = createCard(item);
-      defaultCardList.addItem(card);
+      defaultCardList.addItem(createCard(item));
     },
-  },
-  selectors.cardsList
+  }, selectors.cardsList
 );
 
 //реализация попапа добавления новой карточки
-
+/*
 const popupWithImage = new PopupWithImage(selectors.popupImage);
 
 
@@ -52,21 +50,56 @@ const popupWithFormCardAdd = new PopupWithForm(selectors.popupCardAdd,
   const card = createCard(data);
   defaultCardList.addItem(card);
   popupWithFormCardAdd.close();
-  });
+  });*/
 
-const userInfo = new UserInfo(selectors.profileTitle, selectors.profileInfo);
+const userInfo = new UserInfo(selectors.profileTitle, selectors.profileInfo, selectors.profileAvatar);
 
 //реализация попапа с данными профиля
 
 const popupWithFormProfileEdit = new PopupWithForm(
   selectors.popupProfileEdit,
   (data) => {
-    userInfo.setUserInfo(data);
-    popupWithFormProfileEdit.close();
-  }
-);
+    /*userInfo.setUserInfo(data);*/
+    //renderLoading(selectors.popupProfileEdit, true);
+    api.setUserInfo({
+      name: data.userName,
+      about: data.userDescription
+    })
+    .then((info) => {
+      userInfo.setUserInfo({
+        userName: info.name,
+        userDescription: info.about
+      })
+      popupWithFormProfileEdit.close();
+    })
+    .catch(error => console.log(`Ошибка при обновлении информации о пользователе: ${error}`))
+    .finally(() => {
+      renderLoading(selectors.popupProfileEdit);
+    })
+  });
 
 //сервер
+
+Promise.all([api.getUserInfo(), api.getInitialCards()])
+.then(([userData, cards])=> {
+  userInfo.setUserInfo(userData);
+  cards.reverse();
+  defaultCardList.renderItems(cards);
+})
+.catch(error => console.log(`Ошибка: ${error}`));
+
+
+
+
+function renderLoading(isLoading) {
+  if (isLoading) {
+    spinner.classList.add("spinner_visible");
+    content.classList.add("content_hidden");
+  } else {
+   spinner.classList.remove("spinner_visible");
+    content.classList.remove("content_hidden");
+  }
+} 
 
   const api = new Api({
   baseUrl: 'https://nomoreparties.co/v1/cohort-50',
@@ -76,15 +109,25 @@ const popupWithFormProfileEdit = new PopupWithForm(
   }
   });
 
-Promise.all([api.getUserInfo(), api.getInitialCards(), api.editProfile(), api.addNewCard()])
-.then(([userData, cards]) => {
 
-userInfo.setUserInfo(userData);
+
+/*api.setUserInfo()
+.then((res) =>)*/
+
+
+
+
+
+
+/*api.getInitialCards()
+
+api.addNewCard()
+.then(([userData, cards]) => {
 
 cards.reverse();
 defaultCardList.renderItems(cards);
 })
-.catch((error) => console.log(`Ошибка: ${error}`))
+.catch((error) => console.log(`Ошибка: ${error}`))*/
 
 //слушатели
 
@@ -106,28 +149,40 @@ buttonProfileEdit.addEventListener("click", () => {
   popupWithFormProfileEdit.setInputValues(data);
 });
 
-function createCard(item) {
+const createCard = (item) => {
   const card = new Card(
     {  data: {
           title: item.name,
           link: item.link,
-          likes: item.likes
+          likes: item.likes,
+          currentUserId: userId
         },
         handleCardClick: () => {
           popupWithImage.open(item);
         },
-        handleLikeClick: (card) => {
-          this._like.classList.toggle("elements__like_state_active");
-        },
-        handleDeleteIconClick: (card) => {
-          this._element.remove();
-          this._element = null;
+        handleLikeCard: (card) => {
+        //  this._like.classList.toggle("elements__like_state_active");
+
+          api.changeLikeStatus(card.id(), !card.isLiked())
+          .then(data => {
+            card.setLikesInfo({...data});
+          })
+          .catch(error => console.log(`Ошибка изменения статуса лайка: ${error}`))
       },
-    }, selectors.templateCard,
-    (title, link) => {
-      popupWithImage.open(item);
-  //    popupWithImage.setEventListeners();
-    });
-	const cardElement = card.generate(item);
-  return cardElement;
+        handleDeleteIconClick: (card) => {
+          cardInfoSubmit.open();
+          cardInfoSubmit.setSubmitAction(() => {
+            api.removeCard(card.id())
+            .then(() => {
+              card.removeCard();
+              cardInfoSubmit.close();
+            })
+            .catch(error => console.log(`При удалении карточки ошибка: ${error}`))
+            });
+          },
+    }, selectors.templateCard
+  )
+	//const cardElement = card.generate(item);
+  //return cardElement;
+  return card.getView();
 }

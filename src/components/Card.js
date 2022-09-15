@@ -32,7 +32,7 @@ export class Card {
     this._like.classList.toggle("elements__like_state_active");
   }
 
-  _handleDeleteCard = () => {
+  removeCard = () => {
     this._element.remove();
     this._element = null;
   }

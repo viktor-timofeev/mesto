@@ -14,6 +14,18 @@ getUserInfo() {
 });
 }
 
+setUserInfo() {
+  return fetch(`${this._address}/users/me`, {
+    method: 'PATCH',
+    headers: this._headers,
+    body: JSON.stringify({
+      name, about
+    })
+  }).then(res => {
+    return res.json();
+  });
+}
+
 getInitialCards() {
   return fetch(`${this._address}/cards`, {
     method: "GET", 
@@ -23,18 +35,7 @@ getInitialCards() {
 });
 }
 
-editProfile(item) {
-  return fetch(`${this._address}/users/me`, {
-    method: 'PATCH',
-    headers: this._headers,
-    body: JSON.stringify({
-      name: item.name,
-      about: item.about
-    })
-  }).then(res => {
-    return res.json();
-  });
-}
+
 
 addNewCard(newCard) {
   return fetch(`${this._address}/cards`, {
