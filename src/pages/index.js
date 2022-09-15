@@ -151,7 +151,7 @@ buttonProfileEdit.addEventListener("click", () => {
 const createCard = (item) => {
   const card = new Card(
     {  data: {
-          ...cardData,
+        //  ...cardData,
           currentUserId: userId,
           title: item.name,
           link: item.link,
