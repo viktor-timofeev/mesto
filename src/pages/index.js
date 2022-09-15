@@ -152,10 +152,11 @@ buttonProfileEdit.addEventListener("click", () => {
 const createCard = (item) => {
   const card = new Card(
     {  data: {
-          title: item.name,
-          link: item.link,
-          likes: item.likes,
+          ...cardData,
           currentUserId: userId
+          //title: item.name,
+          //link: item.link,
+          //likes: item.likes,  
         },
         handleCardClick: () => {
           popupWithImage.open(item);
@@ -184,5 +185,17 @@ const createCard = (item) => {
   )
 	//const cardElement = card.generate(item);
   //return cardElement;
-  return card.getView();
+  return card.generate();
 }
+
+api.getApiInfo()
+.then(([cardsArray, userData]) => {
+  userId = userData._id;
+  userInfo.setUserInfo({
+    userName: userData.name,
+    userDescription: userData.about,
+    userAvatar: userData.avatar
+  });
+  defaultCardList.renderItems(cardsArray);
+})
+.catch(error=>console.log(`Ошибка загрузки данных: ${error}`));
