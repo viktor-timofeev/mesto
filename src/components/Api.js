@@ -8,10 +8,10 @@ getUserInfo() {
   return fetch(`${this._address}/users/me`, {
       method: "GET", 
       headers: this._headers 
-  }).then(res => {
-    return res.json();
-
-});
+    })
+      .then(res => {
+      return res.json();
+    });
 }
 
 setUserInfo() {
