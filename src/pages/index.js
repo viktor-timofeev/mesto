@@ -4,6 +4,8 @@ import {  validateConfig,
           buttonCardAdd,
           formPopupProfileEdit,
           formPopupAddCard,
+          titleInputValue,
+          occupationInputValue
         } from "../utils/constants.js"; 
 import { Card } from "../components/Card.js";
 import { FormValidator } from "../components/FormValidator.js";
@@ -96,10 +98,12 @@ const popupWithFormProfileEdit = new PopupWithForm(
 //сервер
 
 Promise.all([api.getUserInfo(), api.getInitialCards()])
-.then(([userData, cards])=> {
+.then(([userData, cards]) => {
   cards.reverse();
   defaultCardList.renderItems(cards);
   userInfo.setUserInfo(userData);
+  console.log(userData);
+  console.log(cards);
 })
 .catch(error => console.log(`Ошибка: ${error}`));
 
