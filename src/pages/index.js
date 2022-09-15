@@ -41,7 +41,7 @@ const defaultCardList = new Section(
 );
 
 //реализация попапа добавления новой карточки
-/*
+
 const popupWithImage = new PopupWithImage(selectors.popupImage);
 
 
@@ -50,7 +50,7 @@ const popupWithFormCardAdd = new PopupWithForm(selectors.popupCardAdd,
   const card = createCard(data);
   defaultCardList.addItem(card);
   popupWithFormCardAdd.close();
-  });*/
+  });
 
 const userInfo = new UserInfo(selectors.profileTitle, selectors.profileInfo, selectors.profileAvatar);
 const api = new Api({
