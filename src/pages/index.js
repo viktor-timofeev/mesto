@@ -187,6 +187,8 @@ const createCard = (item) => {
   return card.generate();
 }
 
+/*
+
 api.getApiInfo()
 .then(([cardsArray, userData]) => {
   userId = userData._id;
@@ -198,3 +200,5 @@ api.getApiInfo()
   defaultCardList.renderItems(cardsArray);
 })
 .catch(error=>console.log(`Ошибка загрузки данных: ${error}`));
+
+*/
