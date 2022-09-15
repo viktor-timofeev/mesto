@@ -14,12 +14,12 @@ import { UserInfo } from "../components/UserInfo.js";
 
 import './index.css';
 
-import arkhyzImage from '../images/arkhyz.jpg';
+/*import arkhyzImage from '../images/arkhyz.jpg';
 import chelyabinskOblastImage from '../images/chelyabinsk-oblast.jpg';
 import ivanovoImage from '../images/ivanovo.jpg';
 import kamchatkaImage from '../images/kamchatka.jpg';
 import kholmogorskyRayonImage from '../images/kholmogorsky-rayon.jpg';
-import baikalImage from '../images/baikal.jpg';
+import baikalImage from '../images/baikal.jpg';*/
 import { Api } from "../components/Api.js";
 
 //валидация
@@ -42,7 +42,10 @@ const defaultCardList = new Section(
 
 //реализация попапа добавления новой карточки
 
+let userId = null;
+
 const popupWithImage = new PopupWithImage(selectors.popupImage);
+popupWithImage.setEventListeners();
 
 
 const popupWithFormCardAdd = new PopupWithForm(selectors.popupCardAdd, 
@@ -51,6 +54,7 @@ const popupWithFormCardAdd = new PopupWithForm(selectors.popupCardAdd,
   defaultCardList.addItem(card);
   popupWithFormCardAdd.close();
   });
+
 
 const userInfo = new UserInfo(selectors.profileTitle, selectors.profileInfo, selectors.profileAvatar);
 const api = new Api({
@@ -130,7 +134,7 @@ defaultCardList.renderItems(cards);
 
 //слушатели
 
-popupWithImage.setEventListeners();
+
 popupWithFormCardAdd.setEventListeners();
 popupWithFormProfileEdit.setEventListeners();
 

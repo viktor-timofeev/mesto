@@ -20,7 +20,9 @@
     profileTitle: ".profile__title",
     profileInfo: ".profile__subtitle",
     templateCard: ".elements-item",
-    cardsList: ".elements"
+    cardsList: ".elements",
+    titleInputValue: ".popup__input_type_title",
+    occupationInputValue: ".popup__input_type_subtitle"
   };
 
   const buttonProfileEdit = document.querySelector(selectors.buttonProfileEdit);
@@ -29,6 +31,8 @@
   const formPopupAddCard = document.querySelector(selectors.formPopupAddCard);
   const inputCardName = document.querySelector(selectors.inputCardName);
   const inputCardLink = document.querySelector(selectors.inputCardLink);
+  const titleInputValue = document.querySelector(selectors.titleInputValue);
+  const occupationInputValue = document.querySelector(selectors.occupationInputValue);
 
   export {  validateConfig,
             selectors,
@@ -37,6 +41,8 @@
             formPopupProfileEdit,
             formPopupAddCard,
             inputCardName,
-            inputCardLink
+            inputCardLink,
+            titleInputValue,
+            occupationInputValue
           }; 
 
