@@ -54,6 +54,7 @@ const popupWithFormCardAdd = new PopupWithForm(selectors.popupCardAdd,
   defaultCardList.addItem(card);
   popupWithFormCardAdd.close();
   });
+  popupWithFormCardAdd.setEventListeners();
 
 
 const userInfo = new UserInfo(selectors.profileTitle, selectors.profileInfo, selectors.profileAvatar);
@@ -67,13 +68,13 @@ const api = new Api({
 
 
 //реализация попапа с данными профиля
-
+/*
 const popupWithFormProfileEdit = new PopupWithForm(
   selectors.popupProfileEdit,
-  (data) => {
+  (data) => {*/
     /*userInfo.setUserInfo(data);*/
     //renderLoading(selectors.popupProfileEdit, true);
-    api.setUserInfo({
+/*    api.setUserInfo({
       name: data.userName,
       about: data.userDescription
     })
@@ -89,6 +90,8 @@ const popupWithFormProfileEdit = new PopupWithForm(
       renderLoading(selectors.popupProfileEdit);
     })
   });
+  popupWithFormProfileEdit.setEventListeners();
+*/
 
 //сервер
 
@@ -132,11 +135,10 @@ defaultCardList.renderItems(cards);
 })
 .catch((error) => console.log(`Ошибка: ${error}`))*/
 
-//слушатели
 
 
-popupWithFormCardAdd.setEventListeners();
-popupWithFormProfileEdit.setEventListeners();
+
+
 
 buttonCardAdd.addEventListener("click", () => {
   popupWithFormCardAdd.open();
