@@ -200,7 +200,7 @@ const createCard = (item) => {
       name: item.name,
       link: item.link,
       likes: item.likes,
-      currentUserId: userId,
+ //     currentUserId: userId,
       _id: item.id,
  //     owner: {id: item.owner._id}
       
