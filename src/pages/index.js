@@ -97,7 +97,7 @@ const popupWithFormProfileEdit = new PopupWithForm(
 
 //сервер
 
-/*Promise.all([api.getUserInfo(), api.getInitialCards()])
+Promise.all([api.getUserInfo(), api.getInitialCards()])
 .then(([userData, cards]) => {
   cards.reverse();
   defaultCardList.renderItems(cards);
@@ -105,14 +105,14 @@ const popupWithFormProfileEdit = new PopupWithForm(
   console.log(userData);
   console.log(cards);
 })
-.catch(error => console.log(`Ошибка: ${error}`));*/
+.catch(error => console.log(`Ошибка: ${error}`));
 
-api.getInitialCards()
+/*api.getInitialCards()
 .then((cards) => {
   cards.reverse();
   defaultCardList.renderItems(cards);
 })
-.catch(error => console.log(`Ошибка: ${error}`));
+.catch(error => console.log(`Ошибка: ${error}`));*/
 
 
 
