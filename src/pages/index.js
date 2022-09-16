@@ -112,12 +112,6 @@ Promise.all([api.getUserInfo(), api.getInitialCards()])
 })
 .catch(error => console.log(`Ошибка загрузки данных: ${error}`));
 
-/*api.getInitialCards()
-.then((cards) => {
-  cards.reverse();
-  defaultCardList.renderItems(cards);
-})
-.catch(error => console.log(`Ошибка: ${error}`));*/
 
 
 
@@ -167,24 +161,6 @@ function renderLoading(isLoading) {
 
 
 
-
-
-
-/*api.getInitialCards()
-
-api.addNewCard()
-.then(([userData, cards]) => {
-
-cards.reverse();
-defaultCardList.renderItems(cards);
-})
-.catch((error) => console.log(`Ошибка: ${error}`))*/
-
-
-
-
-
-
 buttonCardAdd.addEventListener("click", () => {
   popupWithFormCardAdd.open();
   //popupWithFormCardAdd.setEventListeners();
@@ -227,7 +203,5 @@ const createCard = (cardData) => {
           },*/
     }, selectors.templateCard
   )
-	//const cardElement = card.generate(item);
-  //return cardElement;
   return card.generate();
 }
