@@ -7,8 +7,8 @@ export class Card {
   //  this._ownerId = data.owner._id;
     this._cardId = data._id;
     this._handleCardClick = handleCardClick;
-    this._handleLikeCard = handleLikeCard;
-    this._handleDeleteCard = handleDeleteCard;
+  //  this._handleLikeCard = handleLikeCard;
+  //  this._handleDeleteCard = handleDeleteCard;
     this._templateSelector = templateSelector;
     this._element = document.querySelector(this._templateSelector).content.querySelector('.elements__element').cloneNode(true);
     this._like = this._element.querySelector('.elements__like');
@@ -45,13 +45,13 @@ export class Card {
     this._image.addEventListener('click', () => this._handleCardClick(this._title, this._link));
   }
 
-  _handleLikeCard = () => {
+/*  _handleLikeCard = () => {
     this._like.classList.toggle("elements__like_state_active");
   }
 
   isLiked() {
     return Boolean(this._likes.find(item => item._id === this._userId));
-  }
+  }*/
 
   id() {
     return this._cardId;
