@@ -50,13 +50,13 @@ const popupWithImage = new PopupWithImage(selectors.popupImage);
 popupWithImage.setEventListeners();
 
 
-/*const popupWithFormCardAdd = new PopupWithForm(selectors.popupCardAdd, 
+const popupWithFormCardAdd = new PopupWithForm(selectors.popupCardAdd, 
   (data) => {
   const card = createCard(data);
   defaultCardList.addItem(card);
   popupWithFormCardAdd.close();
   });
-  popupWithFormCardAdd.setEventListeners();*/
+  popupWithFormCardAdd.setEventListeners();
 
 
 const userInfo = new UserInfo(selectors.profileTitle, selectors.profileInfo, selectors.profileAvatar);
@@ -70,13 +70,13 @@ const api = new Api({
 
 
 //реализация попапа с данными профиля
-/*
+
 const popupWithFormProfileEdit = new PopupWithForm(
   selectors.popupProfileEdit,
-  (data) => {*/
-    /*userInfo.setUserInfo(data);*/
+  (data) => {
+    userInfo.setUserInfo(data);
     //renderLoading(selectors.popupProfileEdit, true);
-/*    api.setUserInfo({
+    api.setUserInfo({
       name: data.userName,
       about: data.userDescription
     })
@@ -93,7 +93,7 @@ const popupWithFormProfileEdit = new PopupWithForm(
     })
   });
   popupWithFormProfileEdit.setEventListeners();
-*/
+
 
 //сервер
 
@@ -205,7 +205,7 @@ const createCard = (cardData) => {
         handleCardClick: () => {
           popupWithImage.open(cardData);
         },
-        handleLikeCard: (card) => {
+   /*     handleLikeCard: (card) => {
         //  this._like.classList.toggle("elements__like_state_active");
 
           api.changeLikeStatus(card.id(), !card.isLiked())
@@ -224,7 +224,7 @@ const createCard = (cardData) => {
             })
             .catch(error => console.log(`При удалении карточки ошибка: ${error}`))
             });
-          },
+          },*/
     }, selectors.templateCard
   )
 	//const cardElement = card.generate(item);
