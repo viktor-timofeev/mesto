@@ -61,5 +61,18 @@ addNewCard(newCard) {
     }); */
 
 
+    getAppInfo() {
+      return fetch(`${this._address}/users/me`, {
+        method: "GET", 
+        headers: this._headers
+    }).then(res => {
+      return res.json();
+    });
+    }
+
+
+
 }
+
+
 

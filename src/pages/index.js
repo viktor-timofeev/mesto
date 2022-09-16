@@ -99,13 +99,18 @@ const popupWithFormProfileEdit = new PopupWithForm(
 
 Promise.all([api.getUserInfo(), api.getInitialCards()])
 .then(([userData, cards]) => {
+  userId = userData._id;
+
   cards.reverse();
   defaultCardList.renderItems(cards);
-  userInfo.setUserInfo(userData);
-  console.log(userData);
-  console.log(cards);
+  userInfo.setUserInfo({
+    userName: userData.name,
+    userDescription: userData.about,
+    userAvatar: userData.avatar
+  });
+  
 })
-.catch(error => console.log(`Ошибка: ${error}`));
+.catch(error => console.log(`Ошибка загрузки данных: ${error}`));
 
 /*api.getInitialCards()
 .then((cards) => {
@@ -228,8 +233,8 @@ const createCard = (item) => {
 }
 
 
-
-api.getApiInfo()
+/*
+api.getAppInfo()
 .then(([cardsArray, userData]) => {
   userId = userData._id;
   userInfo.setUserInfo({
@@ -240,5 +245,5 @@ api.getApiInfo()
   defaultCardList.renderItems(cardsArray);
 })
 .catch(error=>console.log(`Ошибка загрузки данных: ${error}`));
-
+*/
 
