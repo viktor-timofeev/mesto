@@ -202,7 +202,7 @@ const createCard = (item) => {
       likes: item.likes,
       currentUserId: userId,
       _id: item.id,
-      owner: {id: item.owner._id}
+ //     owner: {id: item.owner._id}
       
         },
         handleCardClick: () => {
