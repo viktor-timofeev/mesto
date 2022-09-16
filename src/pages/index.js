@@ -44,7 +44,7 @@ const defaultCardList = new Section(
 
 //реализация попапа добавления новой карточки
 
-//let userId = null;
+let userId = null;
 
 const popupWithImage = new PopupWithImage(selectors.popupImage);
 popupWithImage.setEventListeners();
@@ -195,16 +195,8 @@ buttonProfileEdit.addEventListener("click", () => {
 });
 
 const createCard = (item) => {
-  const card = new Card(
-    {  data: {
-      name: item.name,
-      link: item.link,
-      likes: item.likes,
- //     currentUserId: userId,
-      _id: item.id,
- //     owner: {id: item.owner._id}
-      
-        },
+  const card = new Card({
+    data: { ...cardData, currentUserId: userId },
         handleCardClick: () => {
           popupWithImage.open(item);
         },
@@ -235,7 +227,7 @@ const createCard = (item) => {
   return card.generate();
 }
 
-/*
+
 
 api.getApiInfo()
 .then(([cardsArray, userData]) => {
@@ -249,4 +241,4 @@ api.getApiInfo()
 })
 .catch(error=>console.log(`Ошибка загрузки данных: ${error}`));
 
-*/
+

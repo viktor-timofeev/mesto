@@ -20,8 +20,6 @@ export class Card {
   generate() {
     this._image.src = this._link;
     this._image.alt = this._text;
-
-   // this._element = this._getTemplate();
     this._updateLikesView;
     this._setEventListeners();
  //   this._trash.classList.add(this._userId === this._ownerId ? 'card__delete-button_visible': 'card__delete-button_hidden');
@@ -51,9 +49,9 @@ export class Card {
     this._like.classList.toggle("elements__like_state_active");
   }
 
- /* isLiked() {
+  isLiked() {
     return Boolean(this._likes.find(item => item._id === this._userId));
-  }*/
+  }
 
   id() {
     return this._cardId;
