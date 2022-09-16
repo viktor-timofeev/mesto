@@ -21,7 +21,7 @@ export class Card {
     this._image.src = this._link;
     this._image.alt = this._text;
 
-    this._element = this._getTemplate();
+   // this._element = this._getTemplate();
     this._updateLikesView;
     this._setEventListeners();
  //   this._trash.classList.add(this._userId === this._ownerId ? 'card__delete-button_visible': 'card__delete-button_hidden');
