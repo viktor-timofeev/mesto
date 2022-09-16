@@ -44,19 +44,19 @@ const defaultCardList = new Section(
 
 //реализация попапа добавления новой карточки
 
-let userId = null;
+//let userId = null;
 
 const popupWithImage = new PopupWithImage(selectors.popupImage);
 popupWithImage.setEventListeners();
 
 
-const popupWithFormCardAdd = new PopupWithForm(selectors.popupCardAdd, 
+/*const popupWithFormCardAdd = new PopupWithForm(selectors.popupCardAdd, 
   (data) => {
   const card = createCard(data);
   defaultCardList.addItem(card);
   popupWithFormCardAdd.close();
   });
-  popupWithFormCardAdd.setEventListeners();
+  popupWithFormCardAdd.setEventListeners();*/
 
 
 const userInfo = new UserInfo(selectors.profileTitle, selectors.profileInfo, selectors.profileAvatar);
@@ -197,11 +197,10 @@ buttonProfileEdit.addEventListener("click", () => {
 const createCard = (item) => {
   const card = new Card(
     {  data: {
-        //  ...cardData,
-          currentUserId: userId,
-          title: item.name,
-          link: item.link,
-          likes: item.likes,  
+      title: item.name,
+      link: item.link,
+      likes: item.likes,
+      currentUserId: item.owner._id,
         },
         handleCardClick: () => {
           popupWithImage.open(item);
