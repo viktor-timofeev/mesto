@@ -197,10 +197,13 @@ buttonProfileEdit.addEventListener("click", () => {
 const createCard = (item) => {
   const card = new Card(
     {  data: {
-      title: item.name,
+      name: item.name,
       link: item.link,
       likes: item.likes,
-      currentUserId: item.owner._id,
+      currentUserId: userId,
+      _id: item.id,
+      owner: {id: item.owner._id}
+      
         },
         handleCardClick: () => {
           popupWithImage.open(item);
