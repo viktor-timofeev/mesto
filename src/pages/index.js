@@ -199,11 +199,11 @@ buttonProfileEdit.addEventListener("click", () => {
   popupWithFormProfileEdit.setInputValues(data);
 });
 
-const createCard = (item) => {
+const createCard = (cardData) => {
   const card = new Card({
     data: { ...cardData, currentUserId: userId },
         handleCardClick: () => {
-          popupWithImage.open(item);
+          popupWithImage.open(cardData);
         },
         handleLikeCard: (card) => {
         //  this._like.classList.toggle("elements__like_state_active");
@@ -231,19 +231,3 @@ const createCard = (item) => {
   //return cardElement;
   return card.generate();
 }
-
-
-/*
-api.getAppInfo()
-.then(([cardsArray, userData]) => {
-  userId = userData._id;
-  userInfo.setUserInfo({
-    userName: userData.name,
-    userDescription: userData.about,
-    userAvatar: userData.avatar
-  });
-  defaultCardList.renderItems(cardsArray);
-})
-.catch(error=>console.log(`Ошибка загрузки данных: ${error}`));
-*/
-
