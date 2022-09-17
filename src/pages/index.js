@@ -72,6 +72,12 @@ const popupWithFormProfileEdit = new PopupWithForm(
       name: data.userName,
       about: data.userDescription
     })
+    .then((data)=> {
+      api.setUserInfo({
+        name: data.name,
+        about: data.about
+      })
+    })
     .then((info) => {
       userInfo.setUserInfo({
         userName: info.name,
