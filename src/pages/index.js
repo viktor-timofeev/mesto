@@ -68,18 +68,12 @@ const popupWithFormProfileEdit = new PopupWithForm(
   selectors.popupProfileEdit,
   (data) => {
     //renderLoading(selectors.popupProfileEdit, true);
-    api.setUserInfo({
-      name: data.userName,
-      about: data.userDescription
-    })
-    .then((data)=> {
-      api.setUserInfo({
-        name: data.name,
-        about: data.about
+    api.setUserInfo(data)
+    .then((info) => {
+      userInfo.setUserInfo({
+        userName: info.name,
+        userDescription: info.about
       })
-    })
-    .then((res) => {
-      userInfo.setUserInfo(res)
       popupWithFormProfileEdit.close();
     })
     .catch(error => console.log(`Ошибка при обновлении информации о пользователе: ${error}`))
