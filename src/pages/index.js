@@ -74,7 +74,7 @@ const api = new Api({
 const popupWithFormProfileEdit = new PopupWithForm(
   selectors.popupProfileEdit,
   (data) => {
-    userInfo.setUserInfo(data);
+    //userInfo.setUserInfo(data);
     //renderLoading(selectors.popupProfileEdit, true);
     api.setUserInfo({
       name: data.userName,
@@ -88,9 +88,9 @@ const popupWithFormProfileEdit = new PopupWithForm(
       popupWithFormProfileEdit.close();
     })
     .catch(error => console.log(`Ошибка при обновлении информации о пользователе: ${error}`))
-    .finally(() => {
+    /*.finally(() => {
       renderLoading(selectors.popupProfileEdit);
-    })
+    })*/
   });
   popupWithFormProfileEdit.setEventListeners();
 
