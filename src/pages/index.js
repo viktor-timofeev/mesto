@@ -78,11 +78,8 @@ const popupWithFormProfileEdit = new PopupWithForm(
         about: data.about
       })
     })
-    .then((info) => {
-      userInfo.setUserInfo({
-        userName: info.name,
-        userDescription: info.about
-      })
+    .then((res) => {
+      userInfo.setUserInfo(res)
       popupWithFormProfileEdit.close();
     })
     .catch(error => console.log(`Ошибка при обновлении информации о пользователе: ${error}`))
