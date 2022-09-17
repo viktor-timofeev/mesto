@@ -25,6 +25,17 @@ validatorFormPopupProfileEdit.enableValidation();
 const validatorFormPopupAddCard = new FormValidator(validateConfig, formPopupAddCard);
 validatorFormPopupAddCard.enableValidation();
 
+
+
+const userInfo = new UserInfo(selectors.profileTitle, selectors.profileInfo/*, selectors.profileAvatar*/);
+const api = new Api({
+  baseUrl: 'https://nomoreparties.co/v1/cohort-50',
+  headers: {
+  authorization: "5d18e568-66bc-4809-86d6-8fc39fab9075", 
+  "content-type": "application/json" 
+  }
+  });
+
 //реализация массива заготовленных карточек
 
 const defaultCardList = new Section(
@@ -55,33 +66,7 @@ const popupWithFormCardAdd = new PopupWithForm(selectors.popupCardAdd,
     renderLoading(selectors.popupProfileEdit);
   })*/
   });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   popupWithFormCardAdd.setEventListeners();
-
-
-const userInfo = new UserInfo(selectors.profileTitle, selectors.profileInfo/*, selectors.profileAvatar*/);
-const api = new Api({
-  baseUrl: 'https://nomoreparties.co/v1/cohort-50',
-  headers: {
-  authorization: "5d18e568-66bc-4809-86d6-8fc39fab9075", 
-  "content-type": "application/json" 
-  }
-  });
-
 
 //реализация попапа с данными профиля
 

@@ -25,12 +25,8 @@ setUserInfo(newData) {
   })
   .then(res => {
     return res.json();
-  })/*
-  .then((post) => {
-    addPostToDOM(document.querySelector(".container"), createPostMarkup(post));
- })*/
+  })
  }; 
-
 
 getInitialCards() {
   return fetch(`${this._address}/cards`, {
@@ -40,8 +36,6 @@ getInitialCards() {
   return res.json();
 });
 }
-
-
 
 addNewCard(newCard) {
   return fetch(`${this._address}/cards`, {
