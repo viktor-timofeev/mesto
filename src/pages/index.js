@@ -134,7 +134,7 @@ buttonProfileEdit.addEventListener("click", () => {
 
 const createCard = (cardData) => {
   const card = new Card({
-    data: { /*...cardData, currentUserId: userId */ cardData},
+    data: { ...cardData, currentUserId: userId },
         handleCardClick: () => {
           popupWithImage.open(cardData);
         },
