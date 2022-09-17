@@ -19,8 +19,8 @@ setUserInfo(newUser) {
     method: 'PATCH',
     headers: this._headers,
     body: JSON.stringify({
-      name: newUser.name,
-      about: newUser.about
+      name: newUser.userName,
+      about: newUser.userDescription
     })
   })
   .then(res => {
