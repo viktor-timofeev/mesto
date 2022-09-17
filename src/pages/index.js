@@ -171,8 +171,8 @@ buttonProfileEdit.addEventListener("click", () => {
   popupWithFormProfileEdit.open();
   //popupWithFormProfileEdit.setEventListeners();
   validatorFormPopupProfileEdit.resetValidation();
-  const data = userInfo.getUserInfo();
-  popupWithFormProfileEdit.setInputValues(data);
+  //const data = userInfo.getUserInfo();
+  popupWithFormProfileEdit.setInputValues(userInfo.getUserInfo());
 });
 
 const createCard = (cardData) => {
