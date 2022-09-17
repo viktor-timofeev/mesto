@@ -14,13 +14,13 @@ getUserInfo() {
     });
 }
 
-setUserInfo(newUser) {
+setUserInfo() {
   return fetch(`${this._address}/users/me`, {
     method: 'PATCH',
     headers: this._headers,
     body: JSON.stringify({
-      userName: newUser.name,
-      userDescription: newUser.about
+      name: "дру",
+      about: "жба"
     })
   })
   .then(res => {
