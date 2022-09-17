@@ -13,16 +13,9 @@ import { Section } from "../components/Section.js";
 import { PopupWithImage } from "../components/PopupWithImage.js";
 import { PopupWithForm } from "../components/PopupWithForm.js";
 import { UserInfo } from "../components/UserInfo.js";
+import { Api } from "../components/Api.js";
 
 import './index.css';
-
-/*import arkhyzImage from '../images/arkhyz.jpg';
-import chelyabinskOblastImage from '../images/chelyabinsk-oblast.jpg';
-import ivanovoImage from '../images/ivanovo.jpg';
-import kamchatkaImage from '../images/kamchatka.jpg';
-import kholmogorskyRayonImage from '../images/kholmogorsky-rayon.jpg';
-import baikalImage from '../images/baikal.jpg';*/
-import { Api } from "../components/Api.js";
 
 //валидация
 
@@ -59,7 +52,7 @@ const popupWithFormCardAdd = new PopupWithForm(selectors.popupCardAdd,
   popupWithFormCardAdd.setEventListeners();
 
 
-const userInfo = new UserInfo(selectors.profileTitle, selectors.profileInfo, selectors.profileAvatar);
+const userInfo = new UserInfo(selectors.profileTitle, selectors.profileInfo/*, selectors.profileAvatar*/);
 const api = new Api({
   baseUrl: 'https://nomoreparties.co/v1/cohort-50',
   headers: {
@@ -74,7 +67,6 @@ const api = new Api({
 const popupWithFormProfileEdit = new PopupWithForm(
   selectors.popupProfileEdit,
   (data) => {
-    //userInfo.setUserInfo(data);
     //renderLoading(selectors.popupProfileEdit, true);
     api.setUserInfo({
       name: data.userName,
@@ -106,43 +98,11 @@ Promise.all([api.getUserInfo(), api.getInitialCards()])
   userInfo.setUserInfo({
     userName: userData.name,
     userDescription: userData.about,
-    userAvatar: userData.avatar
+   // userAvatar: userData.avatar
   });
   
 })
 .catch(error => console.log(`Ошибка загрузки данных: ${error}`));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 function renderLoading(isLoading) {
@@ -154,12 +114,6 @@ function renderLoading(isLoading) {
     content.classList.remove("content_hidden");
   }
 } 
-
-
-/*api.setUserInfo()
-.then((res) =>)*/
-
-
 
 buttonCardAdd.addEventListener("click", () => {
   popupWithFormCardAdd.open();
