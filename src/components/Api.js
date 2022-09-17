@@ -14,17 +14,23 @@ getUserInfo() {
     });
 }
 
-setUserInfo() {
+setUserInfo(newUser) {
   return fetch(`${this._address}/users/me`, {
     method: 'PATCH',
     headers: this._headers,
     body: JSON.stringify({
-      name, about
+      name: newUser.name,
+      about: newUser.about
     })
-  }).then(res => {
+  })
+  .then(res => {
     return res.json();
-  });
-}
+  })/*
+  .then((post) => {
+    addPostToDOM(document.querySelector(".container"), createPostMarkup(post));
+ })*/
+ }; 
+
 
 getInitialCards() {
   return fetch(`${this._address}/cards`, {
