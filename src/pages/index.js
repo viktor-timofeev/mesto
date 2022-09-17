@@ -45,10 +45,31 @@ popupWithImage.setEventListeners();
 
 const popupWithFormCardAdd = new PopupWithForm(selectors.popupCardAdd, 
   (data) => {
-  const card = createCard(data);
-  defaultCardList.addItem(card);
-  popupWithFormCardAdd.close();
+    api.addNewCard(data)
+    .then((cardData) => {
+      defaultCardList.addItem(createCard(cardData));
+      popupWithFormCardAdd.close();
+    })
+    .catch(error => console.log(`Ошибка при добавлении карточки: ${error}`))
+  /*.finally(() => {
+    renderLoading(selectors.popupProfileEdit);
+  })*/
   });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   popupWithFormCardAdd.setEventListeners();
 
 
