@@ -955,6 +955,26 @@ template {
 }
 .elements__trash_hidden {
   visibility: hidden; 
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 10;
+  background-image: url(823b0cf1b0b7e9cb7cad.svg);
+  width:  18px;
+  height: 19px;
+  margin: 20px 20px 0 0;
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0);
+  cursor: default;
+  transition: .2s;
+}
+
+.elements__trash_hidden:hover {
+  cursor: pointer;
+  opacity: .6;
 }
 .elements__image {
   object-fit: cover;
