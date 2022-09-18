@@ -51,6 +51,26 @@ addNewCard(newCard) {
 });
 } 
 
+changeLikeCardStatus (cardId, isLiked) {
+  if (isLiked) {
+  return fetch(`${this._address}/cards/${cardId}/likes`, {
+    method: "PUT", 
+    headers: this._headers
+})
+.then(res => {
+  return res.json();
+});
+} else {
+  return fetch(`${this._address}/cards/${cardId}/likes`, {
+    method: "DELETE", 
+    headers: this._headers
+})
+.then(res => {
+  return res.json();
+});
+}
+}
+
 /*changeLikeCardStatus() {
   
 }*/
