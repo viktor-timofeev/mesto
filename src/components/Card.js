@@ -2,7 +2,7 @@ export class Card {
   constructor({ data, handleCardClick, /*handleLikeCard, /*handleDeleteCard */}, templateSelector) {
     this._text = data.name;
     this._link = data.link;
-  //  this._likes = data.likes;
+    this._likes = data.likes;
     this._userId = data.currentUserId;
     this._ownerId = data.owner._id;
     this._cardId = data._id;
@@ -15,6 +15,7 @@ export class Card {
     this._image = this._element.querySelector('.elements__image');
     this._trash = this._element.querySelector('.elements__trash');
     this._title = this._element.querySelector('.elements__title');
+    this._likeCounter = this._element.querySelector('elements__like-number');
   }
 
   generate() {
@@ -24,6 +25,7 @@ export class Card {
   //  this._updateLikesView();
     this._setEventListeners();
     this._trash.classList.add(this._userId === this._ownerId ? 'elements__trash_visible': 'elements__trash_hidden');
+    this._likeCounter.textContent = this._likes.length;
     return this._element;
   }
 
