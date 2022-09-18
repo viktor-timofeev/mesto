@@ -42,7 +42,7 @@ addNewCard(newCard) {
     method: "POST", 
     headers: this._headers,
     body: JSON.stringify({
-      name: newCard.name,
+      name: newCard.title,
       link: newCard.link
 })
 })
