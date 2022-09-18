@@ -15,7 +15,7 @@ export class Card {
     this._image = this._element.querySelector('.elements__image');
     this._trash = this._element.querySelector('.elements__trash');
     this._title = this._element.querySelector('.elements__title');
-    this._likeCounter = this._element.querySelector('elements__like-number');
+    this._likeCounter = this._element.querySelector('.elements__like-number');
   }
 
   generate() {
