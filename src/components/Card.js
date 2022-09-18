@@ -7,7 +7,7 @@ export class Card {
     this._ownerId = data.owner._id;
     this._cardId = data._id;
     this._handleCardClick = handleCardClick;
-    this._handleLikeCard = handleLikeCard;
+  //  this._handleLikeCard = handleLikeCard;
   //  this._handleDeleteCard = handleDeleteCard;
     this._templateSelector = templateSelector;
     this._element = document.querySelector(this._templateSelector).content.querySelector('.elements__element').cloneNode(true);
