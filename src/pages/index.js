@@ -141,14 +141,14 @@ const createCard = (cardData) => {
         },
         handleLikeCard: (card) => {
         //  this._like.classList.toggle("elements__like_state_active");
-          if (card.isLiked()) {
-            api.deleteLike(card.id())
+          if (card.isLiked) {
+            api.deleteLike(card.id)
             .then(data => {
               card.setLikesInfo({...data});
             })
             .catch(error => console.log(`Ошибка изменения статуса лайка: ${error}`))
           } else {
-            api.likeCard(card.id())
+            api.likeCard(card.id)
             .then(data => {
               card.setLikesInfo({...data});
             })
