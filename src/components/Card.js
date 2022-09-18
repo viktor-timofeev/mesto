@@ -32,11 +32,11 @@ export class Card {
   }
 
   _updateLikesView() {
-
+    console.log(this._likes);
   }
 
   setLikesInfo(data) {
-
+    console.log(this._likes);
   }
 
   _setEventListeners() {

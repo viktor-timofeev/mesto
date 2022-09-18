@@ -45,10 +45,15 @@ addNewCard(newCard) {
       name: newCard.name,
       link: newCard.link
 })
-}).then(res => {
+})
+.then(res => {
   return res.json();
 });
 } 
+
+changeLikeCardStatus() {
+  console.log(this._address);
+}
 
 /*  fetch('https://mesto.nomoreparties.co/v1/cohort-50/cards', {
    headers: {
