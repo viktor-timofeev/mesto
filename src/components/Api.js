@@ -51,8 +51,8 @@ addNewCard(newCard) {
 });
 } 
 
-changeLikeCardStatus (cardId, isLiked) {
-  if (isLiked) {
+
+  likeCard (cardId) {
   return fetch(`${this._address}/cards/${cardId}/likes`, {
     method: "PUT", 
     headers: this._headers
@@ -60,7 +60,9 @@ changeLikeCardStatus (cardId, isLiked) {
 .then(res => {
   return res.json();
 });
-} else {
+  }
+
+deleteLike (cardId) {
   return fetch(`${this._address}/cards/${cardId}/likes`, {
     method: "DELETE", 
     headers: this._headers
@@ -69,7 +71,7 @@ changeLikeCardStatus (cardId, isLiked) {
   return res.json();
 });
 }
-}
+
 
 /*changeLikeCardStatus() {
   
