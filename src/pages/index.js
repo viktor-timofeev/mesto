@@ -139,7 +139,7 @@ const createCard = (cardData) => {
         handleCardClick: () => {
           popupWithImage.open(cardData);
         },
-        handleLikeCard: (card) => {
+    /*    handleLikeCard: (card) => {
         //  this._like.classList.toggle("elements__like_state_active");
 
           api.changeLikeCardStatus(card.id(), !card.isLiked())

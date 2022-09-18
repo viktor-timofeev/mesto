@@ -51,9 +51,9 @@ addNewCard(newCard) {
 });
 } 
 
-changeLikeCardStatus() {
-  console.log(this._address);
-}
+/*changeLikeCardStatus() {
+  
+}*/
 
 /*  fetch('https://mesto.nomoreparties.co/v1/cohort-50/cards', {
    headers: {
