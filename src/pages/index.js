@@ -56,6 +56,7 @@ popupWithImage.setEventListeners();
 
 const popupWithFormCardAdd = new PopupWithForm(selectors.popupCardAdd, 
   (data) => {
+  //  renderLoading(selectors.popupCardAdd, true);
     api.addNewCard(data)
     .then((cardData) => {
       defaultCardList.addItem(createCard(cardData));
@@ -63,7 +64,7 @@ const popupWithFormCardAdd = new PopupWithForm(selectors.popupCardAdd,
     })
     .catch(error => console.log(`Ошибка при добавлении карточки: ${error}`))
   /*.finally(() => {
-    renderLoading(selectors.popupProfileEdit);
+    renderLoading(selectors.popupCardAdd);
   })*/
   });
   popupWithFormCardAdd.setEventListeners();
@@ -138,16 +139,16 @@ const createCard = (cardData) => {
         handleCardClick: () => {
           popupWithImage.open(cardData);
         },
-   /*     handleLikeCard: (card) => {
+        handleLikeCard: (card) => {
         //  this._like.classList.toggle("elements__like_state_active");
 
-          api.changeLikeStatus(card.id(), !card.isLiked())
+          api.changeLikeCardStatus(card.id(), !card.isLiked())
           .then(data => {
             card.setLikesInfo({...data});
           })
           .catch(error => console.log(`Ошибка изменения статуса лайка: ${error}`))
       },
-        handleDeleteIconClick: (card) => {
+     /*   handleDeleteIconClick: (card) => {
           cardInfoSubmit.open();
           cardInfoSubmit.setSubmitAction(() => {
             api.removeCard(card.id())
