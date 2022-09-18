@@ -153,7 +153,7 @@ const createCard = (cardData) => {
               card.setLikesInfo({...data});
             })
             .catch(error => console.log(`Ошибка изменения статуса лайка: ${error}`))
-          }          
+          }           
       },
      /*   handleDeleteIconClick: (card) => {
           cardInfoSubmit.open();

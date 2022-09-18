@@ -41,13 +41,13 @@ export class Card {
 
   setLikesInfo(newLikes) {
     this._likeCounter.textContent = newLikes.length;
-    this._likes =  newLikes;
+    this._likes = newLikes;
     this._like.classList.toggle("elements__like_state_active");
     this._updateLikesView();
   }
 
   _setEventListeners() {
-    this._like.addEventListener('click', this._handleLikeCard(this/*._cardId*/));
+    this._like.addEventListener('click', this._handleLikeCard(this._cardId));
   //  this._trash.addEventListener('click', this._handleDeleteCard(this));
     this._image.addEventListener('click', () => this._handleCardClick(this._title, this._link));
   }
