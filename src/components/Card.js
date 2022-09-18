@@ -22,7 +22,7 @@ export class Card {
     this._image.src = this._link;
     this._image.alt = this._text;
     this._title.textContent = this._text;
-  //  this._updateLikesView();
+    this._updateLikesView();
     this._setEventListeners();
     this._trash.classList.add(this._userId === this._ownerId ? 'elements__trash_visible': 'elements__trash_hidden');
     this._likeCounter.textContent = this._likes.length;
@@ -34,7 +34,7 @@ export class Card {
   }
 
   _updateLikesView() {
-    if (this.isLiked) {
+    if (this.isLiked()  ) {
       this._like.classList.toggle("elements__like_state_active");    
     }
   }
