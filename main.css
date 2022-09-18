@@ -931,7 +931,7 @@ template {
   border-radius: 10px;
   box-sizing: border-box;
 }
-.elements__trash {
+.elements__trash_visible {
   position: absolute;
   top: 0;
   right: 0;
@@ -949,9 +949,12 @@ template {
   transition: .2s;
 }
 
-.elements__trash:hover {
+.elements__trash_visible:hover {
   cursor: pointer;
   opacity: .6;
+}
+.elements__trash_hidden {
+  visibility: hidden; 
 }
 .elements__image {
   object-fit: cover;
