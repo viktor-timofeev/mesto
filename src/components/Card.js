@@ -4,7 +4,7 @@ export class Card {
     this._link = data.link;
   //  this._likes = data.likes;
     this._userId = data.currentUserId;
-  //  this._ownerId = data.owner._id;
+    this._ownerId = data.owner._id;
     this._cardId = data._id;
     this._handleCardClick = handleCardClick;
   //  this._handleLikeCard = handleLikeCard;
@@ -23,7 +23,7 @@ export class Card {
     this._title.textContent = this._text;
   //  this._updateLikesView();
     this._setEventListeners();
- //   this._trash.classList.add(this._userId === this._ownerId ? 'card__delete-button_visible': 'card__delete-button_hidden');
+    this._trash.classList.add(this._userId === this._ownerId ? 'elements__trash_visible': 'elements__trash_hidden');
     return this._element;
   }
 

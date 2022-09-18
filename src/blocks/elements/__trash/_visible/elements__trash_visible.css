@@ -1,4 +1,4 @@
-.elements__trash {
+.elements__trash_visible {
   position: absolute;
   top: 0;
   right: 0;
@@ -16,7 +16,7 @@
   transition: .2s;
 }
 
-.elements__trash:hover {
+.elements__trash_visible:hover {
   cursor: pointer;
   opacity: .6;
 }
