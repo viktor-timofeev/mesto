@@ -31,13 +31,13 @@ export class Card {
     this._handleCardClick({ title: this._text, link: this._link });
   }
 
-/*  _updateLikesView() {
+  _updateLikesView() {
 
   }
 
   setLikesInfo(data) {
 
-  }*/
+  }
 
   _setEventListeners() {
     this._like.addEventListener('click', this._handleLikeCard(this));
