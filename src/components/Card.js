@@ -26,7 +26,6 @@ export class Card {
     this._setEventListeners();
     this._trash.classList.add(this._userId === this._ownerId ? 'elements__trash_visible': 'elements__trash_hidden');
     this._likeCounter.textContent = this._likes.length;
-    this.setLikesInfo(this._likes);
     return this._element;
   }
 
