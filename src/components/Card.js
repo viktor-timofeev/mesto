@@ -1,5 +1,5 @@
 export class Card {
-  constructor({ data, handleCardClick, handleLikeCard, /*handleDeleteCard */}, templateSelector) {
+  constructor({ data, handleCardClick, handleLikeCard/*, handleDeleteCard */}, templateSelector) {
     this._text = data.name;
     this._link = data.link;
     this._likes = data.likes;
@@ -51,10 +51,6 @@ export class Card {
   //  this._trash.addEventListener('click', this._handleDeleteCard(this));
     this._image.addEventListener('click', () => this._handleCardClick(this._title, this._link));
   }
-
-/*  _handleLikeCard = () => {
-    this._like.classList.toggle("elements__like_state_active");
-  }*/
 
   isLiked() {
     return Boolean(this._likes.find(item => item._id === this._userId));
