@@ -36,15 +36,15 @@ export class Card {
   _updateLikesView() {
     if (!this.isLiked) {
       this._like.classList.remove("elements__like_state_active");    
-    } else {
+    } /*else {
       this._like.classList.add("elements__like_state_active"); 
-    }
+    }*/
   }
 
   setLikesInfo(newLikes) {
     this._likeCounter.textContent = newLikes.length;
     this._likes = newLikes;
-   // this._like.classList.toggle("elements__like_state_active");
+    this._like.classList.toggle("elements__like_state_active");
     this._updateLikesView();
   }
 
