@@ -156,7 +156,7 @@ const createCard = (cardData) => {
         handleCardClick: () => {
           popupWithImage.open(cardData);
         },
-        handleLikeCard: (cardData) => {
+        handleLikeCard: () => {
          console.log(cardData);
         }
          /* if (card.isLiked) {
