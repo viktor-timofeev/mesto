@@ -52,7 +52,7 @@ addNewCard(newCard) {
 } 
 
 
-  likeCard (cardId) {
+likeCard (cardId) {
   return fetch(`${this._address}/cards/${cardId}/likes`, {
     method: "PUT", 
     headers: this._headers
@@ -60,7 +60,7 @@ addNewCard(newCard) {
 .then(res => {
   return res.json();
 });
-  }
+}
 
 deleteLike (cardId) {
   return fetch(`${this._address}/cards/${cardId}/likes`, {
@@ -86,6 +86,28 @@ deleteLike (cardId) {
     .then((result) => {
       console.log(result);
     }); */
+
+
+changeLikeCardStatus(cardId, isLiked) {
+  if (isLiked) {
+    return fetch(`${this._address}/cards/${cardId}/likes`, {
+      method: "DELETE", 
+      headers: this._headers
+  })
+  .then(res => {
+    return res.json();
+  });
+  } else {
+    return fetch(`${this._address}/cards/${cardId}/likes`, {
+      method: "PUT", 
+      headers: this._headers
+  })
+  .then(res => {
+    return res.json();
+  });
+  }
+}
+
 
 
 }
