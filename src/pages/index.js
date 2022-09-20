@@ -157,14 +157,14 @@ const createCard = (cardData) => {
           popupWithImage.open(cardData);
         },
         handleLikeCard: () => {
-          if (card.isMarked) {
-            api.deleteLike(card.id())
+          if (!card.isMarked) {
+            api.likeCard(card.id())
             .then(data => {
               return card.setLikesInfo(data.likes);
             })
             .catch(error => console.log(`Ошибка изменения статуса лайка: ${error}`))
           } else {
-            api.likeCard(card.id())
+            api.deleteLike(card.id())
             .then(data => {
               return card.setLikesInfo(data.likes);
             })
