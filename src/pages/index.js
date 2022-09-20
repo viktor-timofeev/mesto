@@ -158,13 +158,13 @@ const createCard = (cardData) => {
         },
         handleLikeCard: () => {
           if (card.isLiked) {
-            api.deleteLike(card.id())
+            api.likeCard(card.id())
             .then(data => {
               card.setLikesInfo(data.likes);
             })
             .catch(error => console.log(`Ошибка изменения статуса лайка: ${error}`))
           } else {
-            api.likeCard(card.id())
+            api.deleteLike(card.id())
             .then(data => {
               card.setLikesInfo(/*{...data}*/data.likes);
             })
