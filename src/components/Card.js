@@ -35,9 +35,11 @@ export class Card {
 
   _updateLikesView() {
     if (this.isLiked) {
+      console.log(this.isLiked());
       this._like.classList.add("elements__like_state_active");    
     } else {
       this._like.classList.remove("elements__like_state_active"); 
+      console.log(this.isLiked());
     }
   }
 
@@ -56,6 +58,7 @@ export class Card {
 
   isLiked() {
     return Boolean(this._likes.find(item => item._id === this._userId));
+
   }
 
   id() {
