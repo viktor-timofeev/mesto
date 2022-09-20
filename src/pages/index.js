@@ -159,7 +159,7 @@ const createCard = (cardData) => {
         handleLikeCard: () => {
           if (card.isLiked) {
             console.log(cardData.likes.length);
-            api.deleteLike(card.id())
+            api.likeCard(card.id())
             .then(data => {
               //return card.setLikesInfo(data.likes);
               return console.log(data.likes.length);
