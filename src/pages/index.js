@@ -160,8 +160,7 @@ const createCard = (cardData) => {
           if (card.isLiked) {
             api.deleteLike(card.id())
             .then(data => {
-              const newLikes = data.likes
-              return card.setLikesInfo(newLikes);
+              return card.setLikesInfo(data.likes);
             })
             .catch(error => console.log(`Ошибка изменения статуса лайка: ${error}`))
           } else {
