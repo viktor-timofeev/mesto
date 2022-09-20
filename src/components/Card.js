@@ -56,7 +56,7 @@ export class Card {
   }
 
   isLiked() {
-    return Boolean(this._likes.find(item => item._id === this._userId));
+    return Boolean(this._likes.find(item => item.owner._id === this._userId));
 
   }
 
