@@ -161,8 +161,7 @@ const createCard = (cardData) => {
             console.log(cardData.likes.length);
             api.likeCard(card.id())
             .then(data => {
-              //return card.setLikesInfo(data.likes);
-              return console.log(data.likes.length);
+              return card.setLikesInfo(data.likes);
             })
             .catch(error => console.log(`Ошибка изменения статуса лайка: ${error}`))
           } /*else {
