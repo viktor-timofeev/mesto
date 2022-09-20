@@ -133,7 +133,7 @@ buttonProfileEdit.addEventListener("click", () => {
   popupWithFormProfileEdit.setInputValues(userInfo.getUserInfo());
 });
 
-function handleLikeCard(id) {
+/*function handleLikeCard(id) {
   if (card.isLiked) {
     api.deleteLike(id)
     .then(data => {
@@ -147,7 +147,7 @@ function handleLikeCard(id) {
     })
     .catch(error => console.log(`Ошибка изменения статуса лайка: ${error}`))
   }           
-} 
+} */
 
 
 const createCard = (cardData) => {
