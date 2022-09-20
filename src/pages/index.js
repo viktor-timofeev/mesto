@@ -157,9 +157,7 @@ const createCard = (cardData) => {
           popupWithImage.open(cardData);
         },
         handleLikeCard: () => {
-         console.log(cardData);
-        }
-         /* if (card.isLiked) {
+          if (card.isLiked) {
             api.deleteLike(card.id())
             .then(data => {
               return card.setLikesInfo(data.likes);
