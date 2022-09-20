@@ -34,7 +34,7 @@ export class Card {
   }*/
 
   _updateLikesView() {
-    console.log(this.isLiked);
+    console.log(this.isLiked());
     if (this.isLiked) {
       this._like.classList.add("elements__like_state_active");    
     } /*else {
