@@ -58,6 +58,10 @@ export class Card {
     return Boolean(this._likes.find(item => item._id === this._userId));
   }
 
+  isMarked() {
+    return Boolean(this._like.classList.contains("elements__like_state_active"));
+  }
+
   id() {
     return this._cardId;
   }

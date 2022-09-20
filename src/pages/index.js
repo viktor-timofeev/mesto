@@ -157,8 +157,21 @@ const createCard = (cardData) => {
           popupWithImage.open(cardData);
         },
         handleLikeCard: () => {
-          if (card.isLiked) {
-            console.log(cardData.likes.length);
+          if (card.isMarked) {
+            api.deleteLike(card.id())
+            .then(data => {
+              return card.setLikesInfo(data.likes);
+            })
+            .catch(error => console.log(`Ошибка изменения статуса лайка: ${error}`))
+          } else {
+            api.likeCard(card.id())
+            .then(data => {
+              return card.setLikesInfo(data.likes);
+            })
+            .catch(error => console.log(`Ошибка изменения статуса лайка: ${error}`))
+
+
+         /* if (card.isLiked) {
             api.likeCard(card.id())
             .then(data => {
               return card.setLikesInfo(data.likes);
@@ -170,7 +183,7 @@ const createCard = (cardData) => {
               return card.setLikesInfo(data.likes);
             })
             .catch(error => console.log(`Ошибка изменения статуса лайка: ${error}`))
-          } 
+          } */
         }         
       
      /*   handleDeleteIconClick: (card) => {
