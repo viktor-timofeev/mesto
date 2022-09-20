@@ -152,7 +152,7 @@ buttonProfileEdit.addEventListener("click", () => {
 
 const createCard = (cardData) => {
   const card = new Card({
-    data: { ...cardData, currentUserId: userId },
+    data: { ...cardData, currentUserId: userId},
         handleCardClick: () => {
           popupWithImage.open(cardData);
         },
@@ -160,13 +160,13 @@ const createCard = (cardData) => {
           if (card.isLiked) {
             api.deleteLike(card.id())
             .then(data => {
-              card.setLikesInfo(data.likes);
+              return card.setLikesInfo(data.likes);
             })
             .catch(error => console.log(`Ошибка изменения статуса лайка: ${error}`))
           } else {
             api.likeCard(card.id())
             .then(data => {
-              card.setLikesInfo(/*{...data}*/data.likes);
+              return card.setLikesInfo(data.likes);
             })
             .catch(error => console.log(`Ошибка изменения статуса лайка: ${error}`))
           }  
