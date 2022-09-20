@@ -45,12 +45,12 @@ export class Card {
     this._likeCounter.textContent = newLikes.length;
     this._likes = newLikes;
     this._like.classList.toggle("elements__like_state_active");
-    if (this.isLiked) {
-      this._likeCounter.textContent = newLikes.length + 1;
+    if (!this.isLiked) {
+      this._likeCounter.textContent = newLikes.length - 1;
     }
 
     else {
-      this._likeCounter.textContent = newLikes.length - 1;
+      this._likeCounter.textContent = newLikes.length + 1;
     }
 
     //this._updateLikesView();
