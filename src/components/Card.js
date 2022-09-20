@@ -29,9 +29,9 @@ export class Card {
     return this._element;
   }
 
-  _handleImageClick() {
+  /*_handleImageClick() {
     this._handleCardClick({ title: this._text, link: this._link });
-  }
+  }*/
 
   _updateLikesView() {
     if (this.isLiked()) {
@@ -49,7 +49,7 @@ export class Card {
   }
 
   _setEventListeners() {
-    this._like.addEventListener('click', this._handleLikeCard(this));
+    this._like.addEventListener('click', this._handleLikeCard/*(this)*/);
   //  this._trash.addEventListener('click', this._handleDeleteCard(this));
     this._image.addEventListener('click', () => this._handleCardClick(this._title, this._link));
   }
