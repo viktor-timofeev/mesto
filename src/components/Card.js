@@ -35,7 +35,7 @@ export class Card {
 
   _updateLikesView() {
     if (this.isLiked) {
-      this._like.classList.remove("elements__like_state_active");    
+      this._like.classList.add("elements__like_state_active");    
     } /*else {
       this._like.classList.add("elements__like_state_active"); 
     }*/

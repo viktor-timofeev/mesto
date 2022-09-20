@@ -52,7 +52,7 @@ addNewCard(newCard) {
 } 
 
 
-likeCard (cardId) {
+addLike (cardId) {
   return fetch(`${this._address}/cards/${cardId}/likes`, {
     method: "PUT", 
     headers: this._headers
