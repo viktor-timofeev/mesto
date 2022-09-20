@@ -45,9 +45,9 @@ export class Card {
     this._likeCounter.textContent = newLikes.length;
     this._likes = newLikes;
     this._like.classList.toggle("elements__like_state_active");
-    console.log(!this.isLiked);
-      console.log(newLikes.length);
-      console.log(newLikes.length - 1);
+    console.log(this._likes);
+    console.log(newLikes);
+
     if (!this.isLiked) {
       this._likeCounter.textContent = newLikes.length - 1;
     }
