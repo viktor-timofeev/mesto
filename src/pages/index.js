@@ -133,6 +133,23 @@ buttonProfileEdit.addEventListener("click", () => {
   popupWithFormProfileEdit.setInputValues(userInfo.getUserInfo());
 });
 
+function handleLikeCard(id) {
+  if (card.isLiked) {
+    api.deleteLike(id)
+    .then(data => {
+      card.setLikesInfo({...data});
+    })
+    .catch(error => console.log(`Ошибка изменения статуса лайка: ${error}`))
+  } else {
+    api.likeCard(id)
+    .then(data => {
+      card.setLikesInfo({...data});
+    })
+    .catch(error => console.log(`Ошибка изменения статуса лайка: ${error}`))
+  }           
+} 
+
+
 const createCard = (cardData) => {
   const card = new Card({
     data: { ...cardData, currentUserId: userId },
@@ -143,6 +160,7 @@ const createCard = (cardData) => {
           if (card.isLiked) {
             api.deleteLike(card.id())
             .then(data => {
+              console.log(data);
               card.setLikesInfo({...data});
             })
             .catch(error => console.log(`Ошибка изменения статуса лайка: ${error}`))
