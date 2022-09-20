@@ -158,18 +158,20 @@ const createCard = (cardData) => {
         },
         handleLikeCard: () => {
           if (card.isLiked) {
+            console.log(card.likes.length);
             api.deleteLike(card.id())
             .then(data => {
-              return card.setLikesInfo(data.likes);
+              //return card.setLikesInfo(data.likes);
+              console.log(data.likes.length);
             })
             .catch(error => console.log(`Ошибка изменения статуса лайка: ${error}`))
-          } else {
+          } /*else {
             api.likeCard(card.id())
             .then(data => {
               return card.setLikesInfo(data.likes);
             })
             .catch(error => console.log(`Ошибка изменения статуса лайка: ${error}`))
-          }  
+          }  */
         }         
       
      /*   handleDeleteIconClick: (card) => {
