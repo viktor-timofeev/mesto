@@ -1,5 +1,5 @@
 export class Card {
-  constructor({ data, handleCardClick, handleLikeCard/*, handleDeleteCard */}, templateSelector) {
+  constructor({ data, handleCardClick, handleLikeCard, handleDeleteCard}, templateSelector) {
     this._text = data.name;
     this._link = data.link;
     this._likes = data.likes;
@@ -8,7 +8,7 @@ export class Card {
     this._cardId = data._id;
     this._handleCardClick = handleCardClick;
     this._handleLikeCard = handleLikeCard;
-  //  this._handleDeleteCard = handleDeleteCard;
+    this._handleDeleteCard = handleDeleteCard;
     this._templateSelector = templateSelector;
     this._element = document.querySelector(this._templateSelector).content.querySelector('.elements__element').cloneNode(true);
     this._like = this._element.querySelector('.elements__like');
@@ -44,7 +44,6 @@ export class Card {
   setLikesInfo(newLikes) {
     this._likeCounter.textContent = newLikes.length;
     this._like.classList.toggle("elements__like_state_active");
-
     //this._updateLikesView();
   }
 

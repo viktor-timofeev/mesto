@@ -73,21 +73,6 @@ deleteLike (cardId) {
 }
 
 
-/*changeLikeCardStatus() {
-  
-}*/
-
-/*  fetch('https://mesto.nomoreparties.co/v1/cohort-50/cards', {
-   headers: {
-      authorization: '5d18e568-66bc-4809-86d6-8fc39fab9075'
-    }
-  })
-    .then(res => res.json())
-    .then((result) => {
-      console.log(result);
-    }); */
-
-
 changeLikeCardStatus(cardId, isLiked) {
   if (isLiked) {
     return fetch(`${this._address}/cards/${cardId}/likes`, {
@@ -108,9 +93,15 @@ changeLikeCardStatus(cardId, isLiked) {
   }
 }
 
-
-
+removeCard(cardId) {
+return fetch(`${this._address}/cards/${cardId}/likes`, {
+  method: "DELETE", 
+  headers: this._headers
+})
+.then(res => {
+return res.json();
+});
 }
 
-
+}
 

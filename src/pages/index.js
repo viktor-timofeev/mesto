@@ -171,20 +171,6 @@ const createCard = (cardData) => {
             })
             .catch(error => console.log(`Ошибка изменения статуса лайка: ${error}`))
           }
-
-         /* if (card.isLiked) {
-            api.likeCard(card.id())
-            .then(data => {
-              return card.setLikesInfo(data.likes);
-            })
-            .catch(error => console.log(`Ошибка изменения статуса лайка: ${error}`))
-          } else {
-            api.deleteLike(card.id())
-            .then(data => {
-              return card.setLikesInfo(data.likes);
-            })
-            .catch(error => console.log(`Ошибка изменения статуса лайка: ${error}`))
-          } */
         }         
       
      /*   handleDeleteIconClick: (card) => {
