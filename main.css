@@ -1003,7 +1003,6 @@ template {
   opacity: 0.5;	
 }
 .elements__like-number {
-  border: 1px solid red;
   margin: 3px auto 0;
   font-family: 'Inter', Arial, sans-serif;
   font-style: normal;
@@ -1014,7 +1013,6 @@ template {
   color: #000000;
 }
 .elements__like-group {
-  border: 1px solid red;
   position: relative;
   margin: 5px 5px 0 0;
 }
