@@ -153,18 +153,19 @@ buttonProfileEdit.addEventListener("click", () => {
 const createCard = (cardData) => {
   const card = new Card({
     data: { ...cardData, currentUserId: userId},
+
         handleCardClick: () => {
           popupWithImage.open(cardData);
         },
         handleLikeCard: () => {
-          if (!card.isMarked) {
-            api.likeCard(card.id())
+          if (card.isLiked()) {
+            api.deleteLike(card.id())
             .then(data => {
               return card.setLikesInfo(data.likes);
             })
             .catch(error => console.log(`Ошибка изменения статуса лайка: ${error}`))
           } else {
-            api.deleteLike(card.id())
+            api.addLike(card.id())
             .then(data => {
               return card.setLikesInfo(data.likes);
             })
