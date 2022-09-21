@@ -988,7 +988,7 @@ template {
   background-image: url(0e390048c288271ab07f.svg);
   width: 22px;
   height: 19px;
-  margin: 5px 5px 0 0;
+  margin: /*5px 5px*/0 auto 0 0;
   padding: 0;
   border: none;
   font: inherit;
@@ -1016,6 +1016,7 @@ template {
 .elements__like-group {
   border: 1px solid red;
   position: relative;
+  margin: 5px 5px 0 0;
 }
 .elements__like_state_active {
   background-image: url(35948469632d0421d697.svg);
