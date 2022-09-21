@@ -59,7 +59,7 @@ popupWithImage.setEventListeners();
 
 //реализация попапа с подтверждением удаления карточки
 
-const popupConfirm = new PopupWithForm(selectors.popupConfirmDeleteCard);
+const popupConfirm = new PopupWithConfirmation(selectors.popupConfirmDeleteCard);
 popupConfirm.setEventListeners();
 
 
