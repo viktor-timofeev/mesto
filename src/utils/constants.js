@@ -8,6 +8,8 @@
   };
 
   const selectors = {
+    popupProfilePhotoEdit: ".popup_function_edit-photo",
+    popupConfirmDeleteCard: ".popup_function_confirm",
     popupProfileEdit: ".popup_function_edit",
     popupCardAdd: ".popup_function_add",
     popupImage: ".popup_function_closeup",
@@ -23,6 +25,7 @@
     cardsList: ".elements",
     titleInputValue: ".popup__input_type_title",
     occupationInputValue: ".popup__input_type_subtitle"
+
   };
 
   const buttonProfileEdit = document.querySelector(selectors.buttonProfileEdit);
