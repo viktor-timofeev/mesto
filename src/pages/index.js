@@ -14,6 +14,7 @@ import { PopupWithImage } from "../components/PopupWithImage.js";
 import { PopupWithForm } from "../components/PopupWithForm.js";
 import { UserInfo } from "../components/UserInfo.js";
 import { Api } from "../components/Api.js";
+import { PopupWithConfirmation } from "../components/PopupWithConfirmation.js";
 
 import './index.css';
 
@@ -24,6 +25,9 @@ validatorFormPopupProfileEdit.enableValidation();
 
 const validatorFormPopupAddCard = new FormValidator(validateConfig, formPopupAddCard);
 validatorFormPopupAddCard.enableValidation();
+
+//const validatorFormEditProfilePhoto = new FormValidator(validateConfig, formEditProfilePhoto);
+//validatorFormEditProfilePhoto.enableValidation();
 
 
 
@@ -52,6 +56,14 @@ let userId = null;
 
 const popupWithImage = new PopupWithImage(selectors.popupImage);
 popupWithImage.setEventListeners();
+
+//реализация попапа с подтверждением удаления карточки
+
+const popupConfirm = new PopupWithForm(selectors.popupConfirmDeleteCard);
+popupConfirm.setEventListeners();
+
+
+//реализация попапа с редактированием фото профиля
 
 
 const popupWithFormCardAdd = new PopupWithForm(selectors.popupCardAdd, 
@@ -171,19 +183,19 @@ const createCard = (cardData) => {
             })
             .catch(error => console.log(`Ошибка изменения статуса лайка: ${error}`))
           }
-        }         
+        },         
       
-     /*   handleDeleteIconClick: (card) => {
-          cardInfoSubmit.open();
-          cardInfoSubmit.setSubmitAction(() => {
+        handleDeleteIconClick: (card) => {
+          popupConfirm.open();
+          popupConfirm.submitHandler(() => {
             api.removeCard(card.id())
             .then(() => {
               card.removeCard();
-              cardInfoSubmit.close();
+              popupConfirm.close();
             })
             .catch(error => console.log(`При удалении карточки ошибка: ${error}`))
             });
-          },*/
+          },
     }, selectors.templateCard
   )
   return card.generate();
