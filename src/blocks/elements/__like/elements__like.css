@@ -2,7 +2,7 @@
   background-image: url(../../../images/like.svg);
   width: 22px;
   height: 19px;
-  margin: 5px 5px 0 0;
+  margin: /*5px 5px*/0 auto 0 0;
   padding: 0;
   border: none;
   font: inherit;
