@@ -185,10 +185,10 @@ const createCard = (cardData) => {
           }
         },         
       
-        handleDeleteCard: (/*card*/) => {
+        handleDeleteCard: (cardData) => {
           console.log(`1`);
           console.log(card);
-          popupConfirm.open();
+          popupConfirm.open(cardData);
         /*  popupConfirm.submitHandler(() => {
             api.removeCard(card.id())
             .then(() => {
