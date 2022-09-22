@@ -185,7 +185,7 @@ const createCard = (cardData) => {
           }
         },         
       
-        handleDeleteIconClick: (card) => {
+        handleDeleteCard: (card) => {
           console.log(card);
           popupConfirm.open();
         /*  popupConfirm.submitHandler(() => {
