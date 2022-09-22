@@ -185,18 +185,16 @@ const createCard = (cardData) => {
           }
         },         
       
-        handleDeleteCard: (cardData) => {
-          console.log(`1`);
-          console.log(card);
-          popupConfirm.open(cardData);
-        /*  popupConfirm.submitHandler(() => {
+        handleDeleteCard: () => {
+          popupConfirm.open();
+          popupConfirm.submitHandler(() => {
             api.removeCard(card.id())
             .then(() => {
               card.removeCard();
               popupConfirm.close();
             })
             .catch(error => console.log(`При удалении карточки ошибка: ${error}`))
-            });*/
+            });
           },
     }, selectors.templateCard
   )
