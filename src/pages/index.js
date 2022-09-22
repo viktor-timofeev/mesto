@@ -185,7 +185,7 @@ const createCard = (cardData) => {
           }
         },         
       
-        handleDeleteCard: () => {
+        handleDeleteCard: (card) => {
           popupConfirm.open();
           popupConfirm.submitHandler(() => {
             api.removeCard(card.id())
