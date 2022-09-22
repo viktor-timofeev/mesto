@@ -7,6 +7,9 @@
 @import url(../blocks/popup/__container/_size/popup__container_size_large.css);
 @import url(../blocks/popup/__container/_size/popup__container_size_small.css);
 @import url(../blocks/popup/__form/popup__form.css);
+@import url(../blocks/popup/__form/_height/popup__form_height_big.css);
+@import url(../blocks/popup/__form/_height/popup__form_height_medium.css);
+@import url(../blocks/popup/__form/_height/popup__form_height_small.css);
 @import url(../blocks/popup/__title/popup__title.css);
 @import url(../blocks/popup/__input/popup__input.css);
 @import url(../blocks/popup/__input/_type/popup__input_type_error.css);
