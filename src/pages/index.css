@@ -6,6 +6,7 @@
 @import url(../blocks/popup/__container/popup__container.css);
 @import url(../blocks/popup/__container/_size/popup__container_size_large.css);
 @import url(../blocks/popup/__container/_size/popup__container_size_small.css);
+@import url(../blocks/popup/__container/_size/popup__container_size_extra-small.css);
 @import url(../blocks/popup/__form/popup__form.css);
 @import url(../blocks/popup/__form/_height/popup__form_height_big.css);
 @import url(../blocks/popup/__form/_height/popup__form_height_medium.css);
