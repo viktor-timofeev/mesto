@@ -94,7 +94,7 @@ changeLikeCardStatus(cardId, isLiked) {
 }
 
 removeCard(cardId) {
-return fetch(`${this._address}/cards/${cardId}/likes`, {
+return fetch(`${this._address}/cards/${cardId}`, {
   method: "DELETE", 
   headers: this._headers
 })
