@@ -471,6 +471,44 @@ template {
   margin: 8px 40px 0 0;
   border-radius: 10px;
   max-width: 430px;
+  box-sizing: border-box;
+}
+
+
+  @media screen and (max-width: 910px) {
+    .popup__form {
+      margin-right: 0;
+      padding: 25px 22px;
+      margin-top: 16px;
+      max-width: 282px;
+    }
+  }
+
+
+.popup__form_height_big {
+  height: 330px;
+}
+
+
+  @media screen and (max-width: 910px) {
+    .popup__form_height_big {
+      height: 322px;
+    }
+  }
+
+
+.popup__form_height_medium {
+  height: 272px;
+}
+
+.popup__form {
+  display: flex;
+  flex-direction: column;
+  padding: 34px 36px 0;
+  background-color: white;
+  margin: 8px 40px 0 0;
+  border-radius: 10px;
+  max-width: 430px;
   height: 330px;
   box-sizing: border-box;
 }
