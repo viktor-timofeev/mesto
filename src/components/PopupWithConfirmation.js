@@ -1,10 +1,10 @@
-import { Popup } from "./Popup.js";
+import { Popup } from "./Popup";
 
 export class PopupWithConfirmation extends Popup {
   constructor(popupSelector) {
     super(popupSelector);
+    this._popupForm = this._popup.querySelector(".popup_function_confirm");
     this._submitButton = this._popup.querySelector(".popup__submit-button");
-    this._popupForm = this._popup.querySelector(".popup__form");
   }
 
   submitHandler(submitAction) {
