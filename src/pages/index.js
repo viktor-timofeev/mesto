@@ -185,7 +185,7 @@ const createCard = (cardData) => {
           }
         },         
       
-        handleDeleteCard: (card) => {
+        handleDeleteCard: (/*card*/) => {
           console.log(`1`);
           console.log(card);
           popupConfirm.open();
