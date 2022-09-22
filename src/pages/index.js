@@ -186,15 +186,16 @@ const createCard = (cardData) => {
         },         
       
         handleDeleteIconClick: (card) => {
+          console.log(card);
           popupConfirm.open();
-          popupConfirm.submitHandler(() => {
+        /*  popupConfirm.submitHandler(() => {
             api.removeCard(card.id())
             .then(() => {
               card.removeCard();
               popupConfirm.close();
             })
             .catch(error => console.log(`При удалении карточки ошибка: ${error}`))
-            });
+            });*/
           },
     }, selectors.templateCard
   )
