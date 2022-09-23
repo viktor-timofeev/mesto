@@ -847,13 +847,13 @@ template {
     cursor: pointer;
   }
 
-  .profile__image::before:hover {
+  .profile__image:hover::before {
     border-radius: 5px solid red;
     background: rgba(0, 0, 0, .8);
     transition: .3s;
   }
 
-  .profile__image::after:hover {
+  .profile__image:hover::after {
     opacity: 100%;
   }
 
