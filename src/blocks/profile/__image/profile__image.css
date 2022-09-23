@@ -29,6 +29,10 @@
     transition: .3s;
   }
 
+  .profile__image:hover:after {
+    opacity: 1;
+  }
+
   .profile__image::after {
     background-image: url(../../../images/pencil.svg);
     background-size: contain;
