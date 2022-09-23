@@ -846,13 +846,13 @@ template {
     cursor: pointer;
   }
 
-  .profile__image:hover::before {
+  .profile__image::before:hover {
     border-radius: 5px solid red;
     background: rgba(0, 0, 0, .8);
     transition: .3s;
   }
 
-  .profile__image:hover::after {
+  .profile__image::after:hover {
     opacity: 100%;
   }
 
