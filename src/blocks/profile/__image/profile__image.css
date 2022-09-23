@@ -11,3 +11,32 @@
     }
   }
 
+  .profile__image::before {
+    background: transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  .profile__image:hover {
+    cursor: pointer;
+  }
+
+  .profile__image:hover::before {
+    background: 0 0 0 .8;
+    transition: .3s;
+  }
+
+  .profile__image::after {
+    background-image: url(../../../images/pencil.svg);
+    background-size: contain;
+    position: absolute;
+    height: 26px;
+    width: 26px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
