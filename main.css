@@ -847,15 +847,17 @@ template {
   }
 
   .profile__image:hover::before {
+    border-radius: 5px solid red;
     background: rgba(0, 0, 0, .8);
     transition: .3s;
   }
 
   .profile__image:hover::after {
-    opacity: 1;
+    opacity: 100%;
   }
 
   .profile__image::after {
+    border-radius: 5px solid red;
     background-image: url(a086f758840ae814ecde.svg);
     background-size: contain;
     position: absolute;
