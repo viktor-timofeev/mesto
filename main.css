@@ -844,11 +844,11 @@ template {
   }
 
   .profile__image:hover::before {
-    background: 0 0 0 .8;
+    background: rgba(0, 0, 0, .8);
     transition: .3s;
   }
 
-  .profile__image:hover:after {
+  .profile__image:hover::after {
     opacity: 1;
   }
 
@@ -861,6 +861,7 @@ template {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    transition: .3s;
   }
 
 
