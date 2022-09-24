@@ -7,12 +7,6 @@
   z-index: 5;
   background: transparent;
   position: absolute;
-  /*top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  content: "";*/
-
 }
 
   @media screen and (max-width: 910px) {
@@ -33,9 +27,11 @@
 
   .profile__photo-edit-button:hover {
     cursor: pointer;
+    background: rgba(0, 0, 0, .8);
+    transition: .3s;
   }
 
-  .profile__photo-edit-button:hover::before {
+ /* .profile__photo-edit-button:hover::before {
     border-radius: 5px solid red;
     background: rgba(0, 0, 0, .8);
     transition: .3s;
