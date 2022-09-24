@@ -836,19 +836,25 @@ template {
   width: 127.5px;
   border-radius: 50%;
   margin: 0 20.6px 0 0;
-  position: absolute;
   background-size: cover;
   z-index: 5;
+  background: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  content: "";
 
 }
 
   @media screen and (max-width: 910px) {
-    .profile__image {
+    .profile__photo-edit-button {
       margin: 0 auto 22.25px;
     }
   }
 
-  .profile__image::before {
+  .profile__photo-edit-button::before {
     background: transparent;
     position: absolute;
     top: 0;
@@ -858,21 +864,21 @@ template {
     content: "";
   }
 
-  .profile__image:hover {
+  .profile__photo-edit-button:hover {
     cursor: pointer;
   }
 
-  .profile__image:hover::before {
+  .profile__photo-edit-button:hover::before {
     border-radius: 5px solid red;
     background: rgba(0, 0, 0, .8);
     transition: .3s;
   }
 
-  .profile__image:hover::after {
+  .profile__photo-edit-button:hover::after {
     opacity: 100%;
   }
 
-  .profile__image::after {
+  .profile__photo-edit-button::after {
     border-radius: 5px solid red;
     background-image: url(a086f758840ae814ecde.svg);
     background-size: contain;
