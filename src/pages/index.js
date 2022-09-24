@@ -2,6 +2,7 @@ import {  validateConfig,
           selectors,
           buttonProfileEdit,
           buttonCardAdd,
+          buttonEditProfilePhoto,
           formPopupProfileEdit,
           formPopupAddCard,
           titleInputValue,
@@ -26,8 +27,8 @@ validatorFormPopupProfileEdit.enableValidation();
 const validatorFormPopupAddCard = new FormValidator(validateConfig, formPopupAddCard);
 validatorFormPopupAddCard.enableValidation();
 
-//const validatorFormEditProfilePhoto = new FormValidator(validateConfig, formEditProfilePhoto);
-//validatorFormEditProfilePhoto.enableValidation();
+const validatorFormEditProfilePhoto = new FormValidator(validateConfig, formEditProfilePhoto);
+validatorFormEditProfilePhoto.enableValidation();
 
 
 
@@ -158,6 +159,13 @@ buttonProfileEdit.addEventListener("click", () => {
   //const data = userInfo.getUserInfo();
   popupWithFormProfileEdit.setInputValues(userInfo.getUserInfo());
 });
+
+buttonEditProfilePhoto.addEventListener("click", () => {
+  popupWithFormEditProfilePhoto.open();
+  validatorFormEditProfilePhoto.resetValidation();
+});
+
+
 
 /*function handleLikeCard(id) {
   if (card.isLiked) {
