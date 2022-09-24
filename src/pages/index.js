@@ -69,8 +69,11 @@ const popupWithFormEditProfilePhoto = new PopupWithForm(selectors.popupProfilePh
   (data) => {
     //  renderLoading(selectors.popupCardAdd, true);
       api.setUserPic(data)
-      .then(() => {
-        popupWithFormEditProfilePhoto.close();
+      .then((info) => {
+        userInfo.setUserInfo({
+          userAvatar: info.avatar
+        })
+        popupWithFormProfileEdit.close();
       })
       .catch(error => console.log(`Ошибка при добавлении карточки: ${error}`))
     /*.finally(() => {
