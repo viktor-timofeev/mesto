@@ -88,10 +88,12 @@ const popupWithFormEditProfilePhoto = new PopupWithForm(selectors.popupProfilePh
 const popupWithFormCardAdd = new PopupWithForm(selectors.popupCardAdd, 
   (data) => {
   //  renderLoading(selectors.popupCardAdd, true);
+  popupWithFormCardAdd.setButtonText('Сохранение...');
     api.addNewCard(data)
     .then((cardData) => {
       defaultCardList.addItem(createCard(cardData));
       popupWithFormCardAdd.close();
+      popupWithFormCardAdd.setButtonText('Создать');
     })
     .catch(error => console.log(`Ошибка при добавлении карточки: ${error}`))
   /*.finally(() => {
@@ -106,6 +108,7 @@ const popupWithFormProfileEdit = new PopupWithForm(
   selectors.popupProfileEdit,
   (data) => {
     //renderLoading(selectors.popupProfileEdit, true);
+    popupWithFormProfileEdit.setButtonText('Сохранение...');
     api.setUserInfo(data)
     .then((info) => {
       userInfo.setUserInfo({
@@ -113,6 +116,7 @@ const popupWithFormProfileEdit = new PopupWithForm(
         userDescription: info.about
       })
       popupWithFormProfileEdit.close();
+      popupWithFormProfileEdit.setButtonText('Сохранить');
     })
     .catch(error => console.log(`Ошибка при обновлении информации о пользователе: ${error}`))
     /*.finally(() => {
