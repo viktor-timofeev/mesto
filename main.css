@@ -853,7 +853,7 @@ template {
     }
   }
 
-  .profile__photo-edit-button::before {
+  /*.profile__photo-edit-button::before {
     background: transparent;
     position: absolute;
     top: 0;
@@ -861,7 +861,7 @@ template {
     right: 0;
     bottom: 0;
     content: "";
-  }
+  }*/
 
   .profile__photo-edit-button:hover {
     cursor: pointer;
@@ -873,7 +873,7 @@ template {
     border-radius: 5px solid red;
     background: rgba(0, 0, 0, .8);
     transition: .3s;
-  }
+  }*/
 
   .profile__photo-edit-button:hover::after {
     opacity: 100%;
@@ -881,7 +881,7 @@ template {
 
   .profile__photo-edit-button::after {
     border-radius: 5px solid red;
-    background-image: url(../../../images/pencil.svg);
+    background-image: url(a086f758840ae814ecde.svg);
     background-size: contain;
     position: absolute;
     height: 26px;
@@ -891,7 +891,7 @@ template {
     transform: translate(-50%, -50%);
     transition: .3s;
     content: "";
-  }*/
+  }
 
 
 .profile__info {
