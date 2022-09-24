@@ -831,6 +831,11 @@ template {
   }
 
 
+.profile__edit-image {
+  display: flex;
+  position: relative;
+}
+
 .profile__photo-edit-button {
   height: 127.5px;
   width: 127.5px;
