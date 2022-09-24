@@ -50,7 +50,7 @@ const defaultCardList = new Section(
   }, selectors.cardsList
 );
 
-//реализация попапа добавления новой карточки
+
 
 let userId = null;
 
@@ -65,7 +65,21 @@ popupConfirm.setEventListeners();
 
 //реализация попапа с редактированием фото профиля
 
+const popupWithFormEditProfilePhoto = new PopupWithForm(selectors.popupProfilePhotoEdit,
+  (data) => {
+    //  renderLoading(selectors.popupCardAdd, true);
+      api.setUserPic(data)
+      .then(() => {
+        popupWithFormEditProfilePhoto.close();
+      })
+      .catch(error => console.log(`Ошибка при добавлении карточки: ${error}`))
+    /*.finally(() => {
+      renderLoading(selectors.popupCardAdd);
+    })*/
+    });
+    popupWithFormCardAdd.setEventListeners();
 
+//реализация попапа добавления новой карточки
 const popupWithFormCardAdd = new PopupWithForm(selectors.popupCardAdd, 
   (data) => {
   //  renderLoading(selectors.popupCardAdd, true);

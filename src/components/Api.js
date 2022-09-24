@@ -103,5 +103,21 @@ return res.json();
 });
 }
 
+setUserPic(newData) {
+  return fetch(`${this._address}/users/me/avatar`, {
+    method: 'PATCH',
+    headers: this._headers,
+    body: JSON.stringify({
+      avatar: newData.avatar,
+    })
+  })
+  .then(res => {
+    return res.json();
+  })
+ }; 
+
+
 }
+
+
 
