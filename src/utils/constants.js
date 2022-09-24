@@ -49,6 +49,7 @@
             buttonEditProfilePhoto,
             formPopupProfileEdit,
             formPopupAddCard,
+            formEditProfilePhoto,
             inputCardName,
             inputCardLink,
             titleInputValue,

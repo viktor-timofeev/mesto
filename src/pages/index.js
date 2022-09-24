@@ -5,9 +5,7 @@ import {  validateConfig,
           buttonEditProfilePhoto,
           formPopupProfileEdit,
           formPopupAddCard,
-          formEditProfilePhoto,
-          titleInputValue,
-          occupationInputValue
+          formEditProfilePhoto
         } from "../utils/constants.js"; 
 import { Card } from "../components/Card.js";
 import { FormValidator } from "../components/FormValidator.js";
