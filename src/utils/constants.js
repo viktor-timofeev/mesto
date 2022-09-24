@@ -23,11 +23,11 @@
     inputCardLink: ".popup__input_type_link",
     profileTitle: ".profile__title",
     profileInfo: ".profile__subtitle",
+    profileAvatar: ".profile__image",
     templateCard: ".elements-item",
     cardsList: ".elements",
     titleInputValue: ".popup__input_type_title",
     occupationInputValue: ".popup__input_type_subtitle"
-
   };
 
   const buttonProfileEdit = document.querySelector(selectors.buttonProfileEdit);
