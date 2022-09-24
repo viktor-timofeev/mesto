@@ -980,6 +980,7 @@ template {
     }
   }
 .profile__title-block {
+  border: 1px solid red;
   display: flex;
   flex-direction: row;
   box-sizing: border-box;
