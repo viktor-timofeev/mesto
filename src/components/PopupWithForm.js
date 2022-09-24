@@ -34,4 +34,9 @@ export class PopupWithForm extends Popup {
     super.close();
     this._profileForm.reset();
   }
-}    
+
+setButtonText(text) {
+  this._submitButton.textContent = text;
+}
+
+} 

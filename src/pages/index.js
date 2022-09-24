@@ -68,13 +68,14 @@ popupConfirm.setEventListeners();
 const popupWithFormEditProfilePhoto = new PopupWithForm(selectors.popupProfilePhotoEdit,
   (data) => {
     //  renderLoading(selectors.popupCardAdd, true);
+      popupWithFormEditProfilePhoto.setButtonText('Сохранение...');
       api.setUserPic(data)
       .then((info) => {
         userInfo.setUserInfo({
           userAvatar: info.avatar
         })
-        console.log(info.avatar);
         popupWithFormProfileEdit.close();
+        popupWithFormEditProfilePhoto.setButtonText('Сохранить');
       })
       .catch(error => console.log(`Ошибка при добавлении карточки: ${error}`))
     /*.finally(() => {
