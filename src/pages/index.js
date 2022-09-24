@@ -77,7 +77,7 @@ const popupWithFormEditProfilePhoto = new PopupWithForm(selectors.popupProfilePh
       renderLoading(selectors.popupCardAdd);
     })*/
     });
-    popupWithFormCardAdd.setEventListeners();
+    popupWithFormEditProfilePhoto.setEventListeners();
 
 //реализация попапа добавления новой карточки
 const popupWithFormCardAdd = new PopupWithForm(selectors.popupCardAdd, 
