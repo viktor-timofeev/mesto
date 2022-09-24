@@ -31,7 +31,7 @@ validatorFormEditProfilePhoto.enableValidation();
 
 
 
-const userInfo = new UserInfo(selectors.profileTitle, selectors.profileInfo/*, selectors.profileAvatar*/);
+const userInfo = new UserInfo(selectors.profileTitle, selectors.profileInfo, selectors.profileAvatar);
 const api = new Api({
   baseUrl: 'https://nomoreparties.co/v1/cohort-50',
   headers: {
