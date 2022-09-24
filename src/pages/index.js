@@ -28,8 +28,8 @@ validatorFormPopupProfileEdit.enableValidation();
 const validatorFormPopupAddCard = new FormValidator(validateConfig, formPopupAddCard);
 validatorFormPopupAddCard.enableValidation();
 
-const validatorFormEditProfilePhoto = new FormValidator(validateConfig, formEditProfilePhoto);
-validatorFormEditProfilePhoto.enableValidation();
+//const validatorFormEditProfilePhoto = new FormValidator(validateConfig, formEditProfilePhoto);
+//validatorFormEditProfilePhoto.enableValidation();
 
 
 
@@ -163,7 +163,7 @@ buttonProfileEdit.addEventListener("click", () => {
 
 buttonEditProfilePhoto.addEventListener("click", () => {
   popupWithFormEditProfilePhoto.open();
-  validatorFormEditProfilePhoto.resetValidation();
+//  validatorFormEditProfilePhoto.resetValidation();
 });
 
 
