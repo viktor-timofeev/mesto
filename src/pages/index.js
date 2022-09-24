@@ -5,6 +5,7 @@ import {  validateConfig,
           buttonEditProfilePhoto,
           formPopupProfileEdit,
           formPopupAddCard,
+          formEditProfilePhoto,
           titleInputValue,
           occupationInputValue
         } from "../utils/constants.js"; 

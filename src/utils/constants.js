@@ -18,6 +18,7 @@
     buttonEditProfilePhoto: ".profile__photo-edit-button",
     formPopupProfileEdit: ".popup__form_function_edit",
     formPopupAddCard: ".popup__form_function_add",
+    formEditProfilePhoto: ".popup__form_function_edit-photo",
     inputCardName: ".popup__input_type_name",
     inputCardLink: ".popup__input_type_link",
     profileTitle: ".profile__title",
@@ -34,10 +35,12 @@
   const buttonEditProfilePhoto = document.querySelector(selectors.buttonEditProfilePhoto);
   const formPopupProfileEdit = document.querySelector(selectors.formPopupProfileEdit);
   const formPopupAddCard = document.querySelector(selectors.formPopupAddCard);
+  const formEditProfilePhoto = document.querySelector(selectors.formEditProfilePhoto);
   const inputCardName = document.querySelector(selectors.inputCardName);
   const inputCardLink = document.querySelector(selectors.inputCardLink);
   const titleInputValue = document.querySelector(selectors.titleInputValue);
   const occupationInputValue = document.querySelector(selectors.occupationInputValue);
+  
 
   export {  validateConfig,
             selectors,
