@@ -877,11 +877,12 @@ template {
 
   .profile__photo-edit-button:hover::after {
     opacity: 100%;
+    background-image: url(a086f758840ae814ecde.svg);
   }
 
   .profile__photo-edit-button::after {
     border-radius: 5px solid red;
-    background-image: url(a086f758840ae814ecde.svg);
+    background: transparent;
     background-size: contain;
     position: absolute;
     height: 26px;
@@ -892,8 +893,6 @@ template {
     transition: .3s;
     content: "";
   }
-
-
 .profile__info {
   display: flex;
   flex-direction: column;
