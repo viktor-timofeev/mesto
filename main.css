@@ -818,7 +818,6 @@ template {
   }
 
 .profile__image {
-  border: 1px soid red;
   height: 127.5px;
   width: 127.5px;
   border-radius: 50%;
@@ -834,7 +833,6 @@ template {
 
 
 .profile__edit-image {
-  border: 1px solid red;
   display: flex;
   position: relative;
 }
@@ -980,7 +978,6 @@ template {
     }
   }
 .profile__title-block {
-  border: 1px solid red;
   display: flex;
   flex-direction: row;
   box-sizing: border-box;
