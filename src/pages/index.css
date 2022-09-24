@@ -31,6 +31,7 @@
 @import url(../blocks/profile/__add-button/profile__add-button.css);
 @import url(../blocks/profile/__edit-button/profile__edit-button.css);
 @import url(../blocks/profile/__image/profile__image.css);
+@import url(../blocks/profile/__edit-image/profile__edit-image.css);
 @import url(../blocks/profile/__photo-edit-button/profile__photo-edit-button.css);
 @import url(../blocks/profile/__info/profile__info.css);
 @import url(../blocks/profile/__title/profile__title.css);
