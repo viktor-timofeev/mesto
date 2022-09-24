@@ -131,7 +131,7 @@ Promise.all([api.getUserInfo(), api.getInitialCards()])
   userInfo.setUserInfo({
     userName: userData.name,
     userDescription: userData.about,
-   // userAvatar: userData.avatar
+    userAvatar: userData.avatar
   });
   
 })
@@ -150,15 +150,12 @@ function renderLoading(isLoading) {
 
 buttonCardAdd.addEventListener("click", () => {
   popupWithFormCardAdd.open();
-  //popupWithFormCardAdd.setEventListeners();
   validatorFormPopupAddCard.resetValidation();
 });
 
 buttonProfileEdit.addEventListener("click", () => {
   popupWithFormProfileEdit.open();
-  //popupWithFormProfileEdit.setEventListeners();
   validatorFormPopupProfileEdit.resetValidation();
-  //const data = userInfo.getUserInfo();
   popupWithFormProfileEdit.setInputValues(userInfo.getUserInfo());
 });
 
@@ -167,29 +164,9 @@ buttonEditProfilePhoto.addEventListener("click", () => {
   validatorFormEditProfilePhoto.resetValidation();
 });
 
-
-
-/*function handleLikeCard(id) {
-  if (card.isLiked) {
-    api.deleteLike(id)
-    .then(data => {
-      card.setLikesInfo({...data});
-    })
-    .catch(error => console.log(`Ошибка изменения статуса лайка: ${error}`))
-  } else {
-    api.likeCard(id)
-    .then(data => {
-      card.setLikesInfo({...data});
-    })
-    .catch(error => console.log(`Ошибка изменения статуса лайка: ${error}`))
-  }           
-} */
-
-
 const createCard = (cardData) => {
   const card = new Card({
     data: { ...cardData, currentUserId: userId},
-
         handleCardClick: () => {
           popupWithImage.open(cardData);
         },
@@ -208,7 +185,6 @@ const createCard = (cardData) => {
             .catch(error => console.log(`Ошибка изменения статуса лайка: ${error}`))
           }
         },         
-      
         handleDeleteCard: (card) => {
           popupConfirm.open();
           popupConfirm.submitHandler(() => {
