@@ -178,7 +178,7 @@ const createCard = (cardData) => {
             return card.setLikesInfo(data.likes);
           })
           .catch(error => console.log(`Ошибка изменения статуса лайка: ${error}`))
-      }*/
+      }
     },
     handleDeleteCard: (card) => {
       popupConfirm.open();
