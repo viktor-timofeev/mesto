@@ -15,6 +15,9 @@ export class UserInfo {
   setUserInfo(data) {
     this._profileName.textContent = data.userName;
     this._profileInfo.textContent = data.userDescription;
+  }
+
+  setUserPic(data) {
     this._profileAvatar.src = data.userAvatar;
   }
 

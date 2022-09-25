@@ -69,7 +69,7 @@ const popupWithFormEditProfilePhoto = new PopupWithForm(selectors.popupProfilePh
     popupWithFormEditProfilePhoto.setButtonText('Сохранение...');
     api.setUserPic(data)
       .then((info) => {
-        userInfo.setUserInfo({
+        userInfo.setUserPic({
           userAvatar: info.avatar
         })
         popupWithFormProfileEdit.close();
