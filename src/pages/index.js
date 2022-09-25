@@ -163,7 +163,7 @@ const createCard = (cardData) => {
     handleCardClick: () => {
       popupWithImage.open(cardData);
     },
-    handleLikeCard: () => {
+    handleLikeCard: (card) => {
       if (!card.isLiked()) {
         api.deleteLike(card.id())
           .then(data => {
@@ -171,7 +171,7 @@ const createCard = (cardData) => {
             return card.setLikesInfo(data.likes);
           })
           .catch(error => console.log(`Ошибка изменения статуса лайка: ${error}`))
-      } /*else {
+      } else {
         api.addLike(card.id())
           .then(data => {
             console.log(data);
