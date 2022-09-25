@@ -164,21 +164,21 @@ const createCard = (cardData) => {
       popupWithImage.open(cardData);
     },
     handleLikeCard: () => {
-      if (card.isLiked()) {
+      if (!card.isLiked()) {
         api.deleteLike(card.id())
           .then(data => {
             console.log(data);
             return card.setLikesInfo(data.likes);
           })
           .catch(error => console.log(`Ошибка изменения статуса лайка: ${error}`))
-      } else {
+      } /*else {
         api.addLike(card.id())
           .then(data => {
             console.log(data);
             return card.setLikesInfo(data.likes);
           })
           .catch(error => console.log(`Ошибка изменения статуса лайка: ${error}`))
-      }
+      }*/
     },
     handleDeleteCard: (card) => {
       popupConfirm.open();
