@@ -124,7 +124,7 @@ Promise.all([api.getUserInfo(), api.getInitialCards()])
     userInfo.setUserInfo({
       userName: userData.name,
       userDescription: userData.about,
-      userAvatar: userData.avatar
+    //  userAvatar: userData.avatar
     });
 
   })
