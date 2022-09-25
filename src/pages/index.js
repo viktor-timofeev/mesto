@@ -72,7 +72,8 @@ const popupWithFormEditProfilePhoto = new PopupWithForm(selectors.popupProfilePh
         userInfo.setUserPic({
           userAvatar: info.avatar
         })
-        popupWithFormProfileEdit.close();
+        console.log(info.avatar);
+        popupWithFormEditProfilePhoto.close();
         popupWithFormEditProfilePhoto.setButtonText('Сохранить');
       })
       .catch(error => console.log(`Ошибка при добавлении карточки: ${error}`))
@@ -112,19 +113,15 @@ const popupWithFormProfileEdit = new PopupWithForm(
   });
 popupWithFormProfileEdit.setEventListeners();
 
-
-//сервер
-
 Promise.all([api.getUserInfo(), api.getInitialCards()])
   .then(([userData, cards]) => {
     userId = userData._id;
-
     cards.reverse();
     defaultCardList.renderItems(cards);
     userInfo.setUserInfo({
       userName: userData.name,
       userDescription: userData.about,
-    //  userAvatar: userData.avatar
+      userAvatar: userData.avatar
     });
 
   })

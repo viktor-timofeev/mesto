@@ -73,7 +73,7 @@ deleteLike (cardId) {
 }
 
 
-changeLikeCardStatus(cardId, isLiked) {
+/*changeLikeCardStatus(cardId, isLiked) {
   if (isLiked) {
     return fetch(`${this._address}/cards/${cardId}/likes`, {
       method: "DELETE", 
@@ -91,7 +91,7 @@ changeLikeCardStatus(cardId, isLiked) {
     return res.json();
   });
   }
-}
+}*/
 
 removeCard(cardId) {
 return fetch(`${this._address}/cards/${cardId}`, {
@@ -108,15 +108,13 @@ setUserPic(newData) {
     method: 'PATCH',
     headers: this._headers,
     body: JSON.stringify({
-      avatar: newData.avatar,
+      avatar: newData.avatar
     })
   })
   .then(res => {
     return res.json();
   })
  }; 
-
-
 }
 
 
