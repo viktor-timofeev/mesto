@@ -1,12 +1,13 @@
-import {  validateConfig,
-          selectors,
-          buttonProfileEdit,
-          buttonCardAdd,
-          buttonEditProfilePhoto,
-          formPopupProfileEdit,
-          formPopupAddCard,
-          formEditProfilePhoto
-        } from "../utils/constants.js"; 
+import {
+  validateConfig,
+  selectors,
+  buttonProfileEdit,
+  buttonCardAdd,
+  buttonEditProfilePhoto,
+  formPopupProfileEdit,
+  formPopupAddCard,
+  formEditProfilePhoto
+} from "../utils/constants.js";
 import { Card } from "../components/Card.js";
 import { FormValidator } from "../components/FormValidator.js";
 import { Section } from "../components/Section.js";
@@ -29,16 +30,14 @@ validatorFormPopupAddCard.enableValidation();
 const validatorFormEditProfilePhoto = new FormValidator(validateConfig, formEditProfilePhoto);
 validatorFormEditProfilePhoto.enableValidation();
 
-
-
 const userInfo = new UserInfo(selectors.profileTitle, selectors.profileInfo, selectors.profileAvatar);
 const api = new Api({
   baseUrl: 'https://nomoreparties.co/v1/cohort-50',
   headers: {
-  authorization: "5d18e568-66bc-4809-86d6-8fc39fab9075", 
-  "content-type": "application/json" 
+    authorization: "5d18e568-66bc-4809-86d6-8fc39fab9075",
+    "content-type": "application/json"
   }
-  });
+});
 
 //реализация массива заготовленных карточек
 
@@ -50,9 +49,9 @@ const defaultCardList = new Section(
   }, selectors.cardsList
 );
 
-
-
 let userId = null;
+
+//реализация попапа с увеличенным изображением
 
 const popupWithImage = new PopupWithImage(selectors.popupImage);
 popupWithImage.setEventListeners();
@@ -67,9 +66,8 @@ popupConfirm.setEventListeners();
 
 const popupWithFormEditProfilePhoto = new PopupWithForm(selectors.popupProfilePhotoEdit,
   (data) => {
-    //  renderLoading(selectors.popupCardAdd, true);
-      popupWithFormEditProfilePhoto.setButtonText('Сохранение...');
-      api.setUserPic(data)
+    popupWithFormEditProfilePhoto.setButtonText('Сохранение...');
+    api.setUserPic(data)
       .then((info) => {
         userInfo.setUserInfo({
           userAvatar: info.avatar
@@ -78,81 +76,70 @@ const popupWithFormEditProfilePhoto = new PopupWithForm(selectors.popupProfilePh
         popupWithFormEditProfilePhoto.setButtonText('Сохранить');
       })
       .catch(error => console.log(`Ошибка при добавлении карточки: ${error}`))
-    /*.finally(() => {
-      renderLoading(selectors.popupCardAdd);
-    })*/
-    });
-    popupWithFormEditProfilePhoto.setEventListeners();
+  });
+popupWithFormEditProfilePhoto.setEventListeners();
 
 //реализация попапа добавления новой карточки
-const popupWithFormCardAdd = new PopupWithForm(selectors.popupCardAdd, 
+const popupWithFormCardAdd = new PopupWithForm(selectors.popupCardAdd,
   (data) => {
-  //  renderLoading(selectors.popupCardAdd, true);
-  popupWithFormCardAdd.setButtonText('Сохранение...');
+    popupWithFormCardAdd.setButtonText('Сохранение...');
     api.addNewCard(data)
-    .then((cardData) => {
-      defaultCardList.addItem(createCard(cardData));
-      popupWithFormCardAdd.close();
-      popupWithFormCardAdd.setButtonText('Создать');
-    })
-    .catch(error => console.log(`Ошибка при добавлении карточки: ${error}`))
-  /*.finally(() => {
-    renderLoading(selectors.popupCardAdd);
-  })*/
+      .then((cardData) => {
+        defaultCardList.addItem(createCard(cardData));
+        popupWithFormCardAdd.close();
+        popupWithFormCardAdd.setButtonText('Создать');
+      })
+      .catch(error => console.log(`Ошибка при добавлении карточки: ${error}`))
   });
-  popupWithFormCardAdd.setEventListeners();
+popupWithFormCardAdd.setEventListeners();
 
 //реализация попапа с данными профиля
 
 const popupWithFormProfileEdit = new PopupWithForm(
   selectors.popupProfileEdit,
   (data) => {
-    //renderLoading(selectors.popupProfileEdit, true);
     popupWithFormProfileEdit.setButtonText('Сохранение...');
     api.setUserInfo(data)
-    .then((info) => {
-      userInfo.setUserInfo({
-        userName: info.name,
-        userDescription: info.about
+      .then((info) => {
+        userInfo.setUserInfo({
+          userName: info.name,
+          userDescription: info.about
+        })
+        popupWithFormProfileEdit.close();
+        popupWithFormProfileEdit.setButtonText('Сохранить');
       })
-      popupWithFormProfileEdit.close();
-      popupWithFormProfileEdit.setButtonText('Сохранить');
-    })
-    .catch(error => console.log(`Ошибка при обновлении информации о пользователе: ${error}`))
-    /*.finally(() => {
-      renderLoading(selectors.popupProfileEdit);
-    })*/
+      .catch(error => console.log(`Ошибка при обновлении информации о пользователе: ${error}`))
   });
-  popupWithFormProfileEdit.setEventListeners();
+popupWithFormProfileEdit.setEventListeners();
 
 
 //сервер
 
 Promise.all([api.getUserInfo(), api.getInitialCards()])
-.then(([userData, cards]) => {
-  userId = userData._id;
+  .then(([userData, cards]) => {
+    userId = userData._id;
 
-  cards.reverse();
-  defaultCardList.renderItems(cards);
-  userInfo.setUserInfo({
-    userName: userData.name,
-    userDescription: userData.about,
-    userAvatar: userData.avatar
-  });
-  
-})
-.catch(error => console.log(`Ошибка загрузки данных: ${error}`));
+    cards.reverse();
+    defaultCardList.renderItems(cards);
+    userInfo.setUserInfo({
+      userName: userData.name,
+      userDescription: userData.about,
+      userAvatar: userData.avatar
+    });
+
+  })
+  .catch(error => console.log(`Ошибка загрузки данных: ${error}`));
 
 
-function renderLoading(isLoading) {
+function renderLoading(selector, isLoading) {
   if (isLoading) {
     spinner.classList.add("spinner_visible");
     content.classList.add("content_hidden");
   } else {
-   spinner.classList.remove("spinner_visible");
+    spinner.classList.remove("spinner_visible");
     content.classList.remove("content_hidden");
   }
-} 
+}
 
 buttonCardAdd.addEventListener("click", () => {
   popupWithFormCardAdd.open();
@@ -172,37 +159,37 @@ buttonEditProfilePhoto.addEventListener("click", () => {
 
 const createCard = (cardData) => {
   const card = new Card({
-    data: { ...cardData, currentUserId: userId},
-        handleCardClick: () => {
-          popupWithImage.open(cardData);
-        },
-        handleLikeCard: () => {
-          if (card.isLiked()) {
-            api.deleteLike(card.id())
-            .then(data => {
-              return card.setLikesInfo(data.likes);
-            })
-            .catch(error => console.log(`Ошибка изменения статуса лайка: ${error}`))
-          } else {
-            api.addLike(card.id())
-            .then(data => {
-              return card.setLikesInfo(data.likes);
-            })
-            .catch(error => console.log(`Ошибка изменения статуса лайка: ${error}`))
-          }
-        },         
-        handleDeleteCard: (card) => {
-          popupConfirm.open();
-          popupConfirm.submitHandler(() => {
-            api.removeCard(card.id())
-            .then(() => {
-              card.removeCard();
-              popupConfirm.close();
-            })
-            .catch(error => console.log(`При удалении карточки ошибка: ${error}`))
-            });
-          },
-    }, selectors.templateCard
+    data: { ...cardData, currentUserId: userId },
+    handleCardClick: () => {
+      popupWithImage.open(cardData);
+    },
+    handleLikeCard: () => {
+      if (card.isLiked()) {
+        api.deleteLike(card.id())
+          .then(data => {
+            return card.setLikesInfo(data.likes);
+          })
+          .catch(error => console.log(`Ошибка изменения статуса лайка: ${error}`))
+      } else {
+        api.addLike(card.id())
+          .then(data => {
+            return card.setLikesInfo(data.likes);
+          })
+          .catch(error => console.log(`Ошибка изменения статуса лайка: ${error}`))
+      }
+    },
+    handleDeleteCard: (card) => {
+      popupConfirm.open();
+      popupConfirm.submitHandler(() => {
+        api.removeCard(card.id())
+          .then(() => {
+            card.removeCard();
+            popupConfirm.close();
+          })
+          .catch(error => console.log(`При удалении карточки ошибка: ${error}`))
+      });
+    },
+  }, selectors.templateCard
   )
   return card.generate();
 }

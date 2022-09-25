@@ -1,5 +1,5 @@
 export class Card {
-  constructor({ data, handleCardClick, handleLikeCard, handleDeleteCard}, templateSelector) {
+  constructor({ data, handleCardClick, handleLikeCard, handleDeleteCard }, templateSelector) {
     this._text = data.name;
     this._link = data.link;
     this._likes = data.likes;
@@ -24,27 +24,20 @@ export class Card {
     this._title.textContent = this._text;
     this._updateLikesView();
     this._setEventListeners();
-    this._trash.classList.add(this._userId === this._ownerId ? 'elements__trash_visible': 'elements__trash_hidden');
+    this._trash.classList.add(this._userId === this._ownerId ? 'elements__trash_visible' : 'elements__trash_hidden');
     this._likeCounter.textContent = this._likes.length;
     return this._element;
   }
 
-  /*_handleImageClick() {
-    this._handleCardClick({ title: this._text, link: this._link });
-  }*/
-
   _updateLikesView() {
     if (this.isLiked()) {
-      this._like.classList.add("elements__like_state_active");    
-    } /*else {
-      this._like.classList.add("elements__like_state_active"); 
-    }*/
+      this._like.classList.add("elements__like_state_active");
+    }
   }
 
   setLikesInfo(newLikes) {
     this._likeCounter.textContent = newLikes.length;
     this._like.classList.toggle("elements__like_state_active");
-    //this._updateLikesView();
   }
 
   _setEventListeners() {
@@ -54,7 +47,7 @@ export class Card {
   }
 
   isLiked() {
-    return Boolean(this._likes.find(item => item._id === this._userId));  
+    return Boolean(this._likes.find(item => item._id === this._userId));
   }
 
   id() {
