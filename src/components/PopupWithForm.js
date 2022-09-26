@@ -26,7 +26,7 @@ export class PopupWithForm extends Popup {
     this._profileForm.onsubmit = (evt) => {
       evt.preventDefault();
       this._handleFormSubmit(this._getInputValues());
-      this.close();
+  //    this.close();
     };
   }
 
@@ -40,3 +40,5 @@ setButtonText(text) {
 }
 
 } 
+
+loader()

@@ -69,13 +69,15 @@ const popupWithFormEditProfilePhoto = new PopupWithForm(selectors.popupProfilePh
     popupWithFormEditProfilePhoto.setButtonText('Сохранение...');
     api.setUserPic(data)
       .then((info) => {
-       return userInfo.setUserPic({
+        userInfo.setUserPic({
           userAvatar: info.avatar
-        })
+        });
         popupWithFormEditProfilePhoto.close();
-        popupWithFormEditProfilePhoto.setButtonText('Сохранить');
       })
       .catch(error => console.log(`Ошибка при добавлении карточки: ${error}`))
+      .finally(() => {
+        popupWithFormEditProfilePhoto.setButtonText('Сохранить');
+      })
   });
 popupWithFormEditProfilePhoto.setEventListeners();
 
@@ -87,10 +89,12 @@ const popupWithFormCardAdd = new PopupWithForm(selectors.popupCardAdd,
       .then((cardData) => {
         defaultCardList.addItem(createCard(cardData));
         popupWithFormCardAdd.close();
-        popupWithFormCardAdd.setButtonText('Создать');
       })
       .catch(error => console.log(`Ошибка при добавлении карточки: ${error}`))
-  });
+      .finally(() => {
+        popupWithFormCardAdd.setButtonText('Создать');
+      })
+    });
 popupWithFormCardAdd.setEventListeners();
 
 //реализация попапа с данными профиля
@@ -106,9 +110,11 @@ const popupWithFormProfileEdit = new PopupWithForm(
           userDescription: info.about
         })
         popupWithFormProfileEdit.close();
-        popupWithFormProfileEdit.setButtonText('Сохранить');
       })
       .catch(error => console.log(`Ошибка при обновлении информации о пользователе: ${error}`))
+      .finally(() => {
+        popupWithFormProfileEdit.setButtonText('Сохранить');
+      })
   });
 popupWithFormProfileEdit.setEventListeners();
 
@@ -119,23 +125,11 @@ Promise.all([api.getUserInfo(), api.getInitialCards()])
     defaultCardList.renderItems(cards);
     userInfo.setUserInfo({
       userName: userData.name,
-      userDescription: userData.about,
-      userAvatar: userData.avatar
+      userDescription: userData.about
     });
 
   })
   .catch(error => console.log(`Ошибка загрузки данных: ${error}`));
-
-
-function renderLoading(selector, isLoading) {
-  if (isLoading) {
-    spinner.classList.add("spinner_visible");
-    content.classList.add("content_hidden");
-  } else {
-    spinner.classList.remove("spinner_visible");
-    content.classList.remove("content_hidden");
-  }
-}
 
 buttonCardAdd.addEventListener("click", () => {
   popupWithFormCardAdd.open();

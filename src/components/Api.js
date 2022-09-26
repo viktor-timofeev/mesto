@@ -10,7 +10,9 @@ getUserInfo() {
       headers: this._headers 
     })
       .then(res => {
+        if (res.ok) {
       return res.json();
+        }
     });
 }
 
@@ -24,7 +26,9 @@ setUserInfo(newData) {
     })
   })
   .then(res => {
+    if (res.ok) {
     return res.json();
+    }
   })
  }; 
 
@@ -33,7 +37,9 @@ getInitialCards() {
     method: "GET", 
     headers: this._headers
 }).then(res => {
+  if (res.ok) {
   return res.json();
+  }
 });
 }
 
@@ -47,7 +53,9 @@ addNewCard(newCard) {
 })
 })
 .then(res => {
+  if (res.ok) {
   return res.json();
+  }
 });
 } 
 
@@ -58,7 +66,9 @@ addLike (cardId) {
     headers: this._headers
 })
 .then(res => {
+  if (res.ok) {
   return res.json();
+  }
 });
 }
 
@@ -68,7 +78,9 @@ deleteLike (cardId) {
     headers: this._headers
 })
 .then(res => {
+  if (res.ok) {
   return res.json();
+  }
 });
 }
 
@@ -99,7 +111,9 @@ return fetch(`${this._address}/cards/${cardId}`, {
   headers: this._headers
 })
 .then(res => {
+  if (res.ok) {
 return res.json();
+  }
 });
 }
 
@@ -112,7 +126,9 @@ setUserPic(newData) {
     })
   })
   .then(res => {
+    if (res.ok) {
     return res.json();
+    }
   })
  }; 
 }
