@@ -38,7 +38,4 @@ export class PopupWithForm extends Popup {
 setButtonText(text) {
   this._submitButton.textContent = text;
 }
-
-} 
-
-loader()
+}
