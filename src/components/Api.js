@@ -3,17 +3,20 @@ export class Api {
     this._address = setting.baseUrl; 
     this._headers = setting.headers; 
 }
+
+_getResponseData(res) {
+  if (!res.ok) {
+      return Promise.reject(`Ошибка: ${res.status}`); 
+  }
+  return res.json();
+}
   
 getUserInfo() { 
   return fetch(`${this._address}/users/me`, {
       method: "GET", 
       headers: this._headers 
     })
-      .then(res => {
-        if (res.ok) {
-      return res.json();
-        }
-    });
+      .then(res => this._getResponseData(res));
 }
 
 setUserInfo(newData) {
@@ -25,22 +28,15 @@ setUserInfo(newData) {
       about: newData.about
     })
   })
-  .then(res => {
-    if (res.ok) {
-    return res.json();
-    }
-  })
+  .then(res => this._getResponseData(res));
  }; 
 
 getInitialCards() {
   return fetch(`${this._address}/cards`, {
     method: "GET", 
     headers: this._headers
-}).then(res => {
-  if (res.ok) {
-  return res.json();
-  }
-});
+})
+.then(res => this._getResponseData(res));
 }
 
 addNewCard(newCard) {
@@ -52,11 +48,7 @@ addNewCard(newCard) {
       link: newCard.link
 })
 })
-.then(res => {
-  if (res.ok) {
-  return res.json();
-  }
-});
+.then(res => this._getResponseData(res));
 } 
 
 
@@ -65,11 +57,7 @@ addLike (cardId) {
     method: "PUT", 
     headers: this._headers
 })
-.then(res => {
-  if (res.ok) {
-  return res.json();
-  }
-});
+.then(res => this._getResponseData(res));
 }
 
 deleteLike (cardId) {
@@ -77,44 +65,15 @@ deleteLike (cardId) {
     method: "DELETE", 
     headers: this._headers
 })
-.then(res => {
-  if (res.ok) {
-  return res.json();
-  }
-});
+.then(res => this._getResponseData(res));
 }
-
-
-/*changeLikeCardStatus(cardId, isLiked) {
-  if (isLiked) {
-    return fetch(`${this._address}/cards/${cardId}/likes`, {
-      method: "DELETE", 
-      headers: this._headers
-  })
-  .then(res => {
-    return res.json();
-  });
-  } else {
-    return fetch(`${this._address}/cards/${cardId}/likes`, {
-      method: "PUT", 
-      headers: this._headers
-  })
-  .then(res => {
-    return res.json();
-  });
-  }
-}*/
 
 removeCard(cardId) {
 return fetch(`${this._address}/cards/${cardId}`, {
   method: "DELETE", 
   headers: this._headers
 })
-.then(res => {
-  if (res.ok) {
-return res.json();
-  }
-});
+.then(res => this._getResponseData(res));
 }
 
 setUserPic(newData) {
@@ -125,12 +84,9 @@ setUserPic(newData) {
       avatar: newData.avatar
     })
   })
-  .then(res => {
-    if (res.ok) {
-    return res.json();
-    }
-  })
- }; 
+  .then(res => this._getResponseData(res));
+}
+
 }
 
 
