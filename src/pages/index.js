@@ -109,20 +109,12 @@ const popupWithFormProfileEdit = new PopupWithForm(
           userName: info.name,
           userDescription: info.about
         })
-      })
-    api.setUserPic(data)
-        .then((info) => {
-          userInfo.setUserPic({
-            userAvatar: info.avatar
-          })
         popupWithFormProfileEdit.close();
       })
       .catch(error => console.log(`Ошибка при обновлении информации о пользователе: ${error}`))
       .finally(() => {
         popupWithFormProfileEdit.setButtonText('Сохранить');
       })
-
-
   });
 
 popupWithFormProfileEdit.setEventListeners();
@@ -136,7 +128,9 @@ Promise.all([api.getUserInfo(), api.getInitialCards()])
       userName: userData.name,
       userDescription: userData.about
     });
-
+    userInfo.setUserPic({
+      userAvatar: userData.avatar
+    });
   })
   .catch(error => console.log(`Ошибка загрузки данных: ${error}`));
 
@@ -166,14 +160,12 @@ const createCard = (cardData) => {
       if (card.isLiked()) {
         api.deleteLike(card.id())
           .then(data => {
-            console.log(data);
             return card.setLikesInfo(data.likes);
           })
           .catch(error => console.log(`Ошибка изменения статуса лайка: ${error}`))
       } else {
         api.addLike(card.id())
           .then(data => {
-            console.log(data);
             return card.setLikesInfo(data.likes);
           })
           .catch(error => console.log(`Ошибка изменения статуса лайка: ${error}`))
